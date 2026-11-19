@@ -1,0 +1,452 @@
+kategori_utama,subkategori,bisa,tidak_bisa,status
+Alat Kesehatan,Peralatan Anestesi,4,0,Bisa
+Alat Kesehatan,Peralatan Bedah Umum dan Bedah Plastik,4,0,Bisa
+Alat Kesehatan,Peralatan Gastroenterologi-Urologi,5,0,Bisa
+Alat Kesehatan,Peralatan Gigi,5,0,Bisa
+Alat Kesehatan,Peralatan Hematologi dan Patologi,9,0,Bisa
+Alat Kesehatan,Peralatan Imunologi dan Mikrobiologi,6,0,Bisa
+Alat Kesehatan,Peralatan Kardiologi,5,0,Bisa
+Alat Kesehatan,Peralatan Kesehatan Fisik,3,0,Bisa
+Alat Kesehatan,Peralatan Kimia Klinik dan Toksikologi Klinik,3,0,Bisa
+Alat Kesehatan,Peralatan Mata,4,0,Bisa
+Alat Kesehatan,Peralatan Neurologi,3,0,Bisa
+Alat Kesehatan,Peralatan Obstetrik dan Ginekologi,6,0,Bisa
+Alat Kesehatan,Peralatan Ortopedi,3,0,Bisa
+Alat Kesehatan,Peralatan Radiologi,3,0,Bisa
+Alat Kesehatan,Peralatan Rumah Sakit Umum dan Perorangan,3,0,Bisa
+Alat Kesehatan,"Peralatan Telinga, Hidung, dan Tenggorokan",4,0,Bisa
+Alat Laboratorium,Alat dan Bahan Habis Pakai Laboratorium,6,0,Bisa
+Alat Laboratorium,Alat Gelas Laboratorium,2,0,Bisa
+Alat Laboratorium,Alat Uji Laboratorium,6,0,Bisa
+Alat Laboratorium,Alat Ukur Laboratorium,8,0,Bisa
+Alat Laboratorium,Sarana dan Penunjang Laboratorium,4,0,Bisa
+Alat Penunjang Pelayanan Kesehatan,Alat dan Prasarana Pelayanan Kesehatan,12,1,Sebagian
+Alat Penunjang Pelayanan Kesehatan,Alat Pembersih dan Sterilisasi Lingkungan,5,0,Bisa
+Alat Penunjang Pelayanan Kesehatan,Alat Penunjang Kerja Laboratorium Medik,9,0,Bisa
+Alat Penunjang Pelayanan Kesehatan,Alat Penunjang Pelayanan Rawat Inap/Jalan Pasien,4,2,Sebagian
+Alat Penunjang Pelayanan Kesehatan,Alat Simulasi Pelatihan Pelayanan Kesehatan,2,0,Bisa
+Alat Penunjang Pelayanan Kesehatan,Alat Ukur Penunjang Pelayanan Kesehatan,2,0,Bisa
+Alat Penunjang Pelayanan Kesehatan,Bahan Gas Medik,6,0,Bisa
+Alat Penunjang Pelayanan Kesehatan,Bahan Penunjang Kesehatan,2,0,Bisa
+Alat Penunjang Pelayanan Kesehatan,Furnitur Rumah Sakit,9,0,Bisa
+Alat Transportasi,Aksesoris Mobil,3,0,Bisa
+Alat Transportasi,Aksesoris Sepeda Motor,0,9,Tidak Bisa
+Alat Transportasi,Alat Kalibrasi Peralatan Uji Kendaraan,9,0,Bisa
+Alat Transportasi,Alat Uji Kendaraan,12,0,Bisa
+Alat Transportasi,Kendaraan Keperluan Khusus,0,18,Tidak Bisa
+Alat Transportasi,Mobil,0,5,Tidak Bisa
+Alat Transportasi,Mobil Listrik,0,5,Tidak Bisa
+Alat Transportasi,Oli Kendaraan,0,5,Tidak Bisa
+Alat Transportasi,Perangkat Pengisian Baterai Kendaraan Listrik,3,1,Sebagian
+Alat Transportasi,Sepeda Motor,0,5,Tidak Bisa
+Alat Transportasi,Sepeda Motor Listrik,0,4,Tidak Bisa
+Alat Transportasi,Spare Part Mobil,14,0,Bisa
+Alat Transportasi,Spare Part Sepeda Motor,0,8,Tidak Bisa
+Alat Transportasi,Spare Part Transportasi Lainnya,0,3,Tidak Bisa
+Alat Transportasi,Transportasi Lainnya,0,3,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 1 Umum dan Penerapan SMKK,0,4,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 10 Pekerjaan Pemeliharaan,0,2,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 2 Drainase,0,4,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 3 Pekerjaan Tanah dan Geosintetik,0,8,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 4 Pekerjaan Preventif,0,12,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 5 Perkerasan Berbutir dan Perkerasan Beton Semen,0,5,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 6 Perkerasan Aspal,0,7,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 7 Pekerjaan Struktur,0,17,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 8 Rehabilitasi Jembatan,0,14,Tidak Bisa
+Bidang Bina Marga 2025,Divisi 9  Pekerjaan Harian dan Pekerjaan Lain-lain,0,4,Tidak Bisa
+Bidang Cipta Karya,Bangunan Sistem Pengelolaan Air Limbah Domestik (SPALD),0,3,Tidak Bisa
+Bidang Cipta Karya,Drainase Jalan,0,3,Tidak Bisa
+Bidang Cipta Karya,Jalan Pada Permukiman,0,3,Tidak Bisa
+Bidang Cipta Karya,Jaringan Pipa di Luar Gedung,0,7,Tidak Bisa
+Bidang Cipta Karya,Pekerjaan Arsitektur,0,19,Tidak Bisa
+Bidang Cipta Karya,Pekerjaan Lansekap,0,3,Tidak Bisa
+Bidang Cipta Karya,Pekerjaan Mekanikal dan Elektrikal,0,7,Tidak Bisa
+Bidang Cipta Karya,Pekerjaan Plambing,0,7,Tidak Bisa
+Bidang Cipta Karya,Pekerjaan Struktur,0,7,Tidak Bisa
+Bidang Cipta Karya,Penunjang Bangunan Gedung,0,1,Tidak Bisa
+Bidang Cipta Karya,Persiapan Lapangan/Site Work,0,5,Tidak Bisa
+Bidang Cipta Karya,Sistem Penyediaan Air Minum,0,2,Tidak Bisa
+Bidang Cipta Karya,Sistem Struktur RISHA,0,3,Tidak Bisa
+Bidang Perumahan dan Kawasan Permukiman,"Prasarana, Sarana dan Utilitas (PSU) Rumah Susun",0,8,Tidak Bisa
+Bidang Perumahan dan Kawasan Permukiman,Struktur Atas Rumah Susun,0,13,Tidak Bisa
+Bidang Perumahan dan Kawasan Permukiman,Struktur Bawah (Pondasi) Rumah Susun,0,11,Tidak Bisa
+Bidang Sumber Daya Air,(A.1.01 - Manual dan Semi Mekanis) Pekerjaan Tanah,0,5,Tidak Bisa
+Bidang Sumber Daya Air,(A.1.02 - Manual dan Semi Mekanis) Pekerjaan Pasangan,0,19,Tidak Bisa
+Bidang Sumber Daya Air,(A.1.03 - Manual dan Semi Mekanis) Pekerjaan Beton,0,17,Tidak Bisa
+Bidang Sumber Daya Air,(A.1.04 - Manual dan Semi Mekanis) Pekerjaan Dewatering,0,9,Tidak Bisa
+Bidang Sumber Daya Air,(A.1.05 - Manual dan Semi Mekanis) Pekerjaan Pemancangan dan Pondasi Tiang Bor,0,11,Tidak Bisa
+Bidang Sumber Daya Air,(A.1.06 - Manual dan Semi Mekanis) Pekerjaan Pintu Air dan Peralatan Hidromekanik,0,3,Tidak Bisa
+Bidang Sumber Daya Air,(A.1.07 - Manual dan Semi Mekanis) Pekerjaan Pantai Secara Manual,0,8,Tidak Bisa
+Bidang Sumber Daya Air,(A.1.08 - Manual dan Semi Mekanis) Pekerjaan Lain-lain,0,10,Tidak Bisa
+Bidang Sumber Daya Air,"(A.3.01 - Mekanis) Gali, Muat dan Angkut Material Tanah dan Galian Batu",0,16,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.02 - Mekanis) Pekerjaan Infrastruktur Irigasi dan Rawa,0,6,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.03 - Mekanis) Pengerukan Sedimen Dan Gulma Air,0,7,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.04 - Mekanis) Pekerjaan Beton,0,10,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.05 - Mekanis) Pemancangan Secara Mekanis,0,28,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.06 - Mekanis) Pondasi Tiang Bor,0,8,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.07 - Mekanis) Pekerjaan Pantai,0,10,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.08 - Mekanis) Air Tanah,0,15,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.09 - Mekanis) Lain-Lain,0,13,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.10 - Mekanis) Pekerjaan Pintu Air dan Peralatan Hidromekanik,0,1,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.11 - Mekanis) Pekerjaan Pasangan,0,16,Tidak Bisa
+Bidang Sumber Daya Air,(A.3.12) Pemasangan dan Pembongkaran Instrumentasi,0,2,Tidak Bisa
+Bidang Umum,(U.1) Persiapan,0,3,Tidak Bisa
+Bidang Umum,(U.2) Pekerjaan Dewatering,0,2,Tidak Bisa
+Bidang Umum,(U.3) Pekerjaan Tanah,0,7,Tidak Bisa
+Bidang Umum,(U.4) Pekerjaan Beton,0,11,Tidak Bisa
+Bidang Umum,(U.5) Pekerjaan Pemancangan,0,2,Tidak Bisa
+Bidang Umum,(U.6) Pekerjaan Air Tanah,0,2,Tidak Bisa
+Hadiah Souvenir,Souvenir Lainnya,0,4,Tidak Bisa
+Hadiah Souvenir,Souvenir Tradisional,0,8,Tidak Bisa
+Hadiah Souvenir,Souvenir Umum,1,10,Sebagian
+Hewan dan Ternak,Benih Ternak,0,2,Tidak Bisa
+Hewan dan Ternak,Hewan Lainnya,0,1,Tidak Bisa
+Hewan dan Ternak,Obat Hewan dan Ternak,0,5,Tidak Bisa
+Hewan dan Ternak,Pakan Ternak,0,5,Tidak Bisa
+Hewan dan Ternak,Peralatan Hewan dan Ternak,0,3,Tidak Bisa
+Hewan dan Ternak,Ternak Non Ruminansia,0,1,Tidak Bisa
+Hewan dan Ternak,Ternak Ruminansia Besar,0,3,Tidak Bisa
+Hewan dan Ternak,Ternak Ruminansia Kecil,0,4,Tidak Bisa
+Hewan dan Ternak,Ternak Unggas,0,4,Tidak Bisa
+Jasa Akomodasi,Jasa Akomodasi,0,4,Tidak Bisa
+Jasa Akomodasi,Jasa Sewa Tempat Kegiatan,0,2,Tidak Bisa
+Jasa Akomodasi,Jasa Tiket Transportasi,0,4,Tidak Bisa
+Jasa Bidang Geofisika,Jasa Peralatan Survey Drone/Airborne,0,1,Tidak Bisa
+Jasa Bidang Geofisika,Pemeliharaan Bidang Geofisika,0,2,Tidak Bisa
+Jasa Bidang Geofisika,Sistem Diseminasi,0,5,Tidak Bisa
+Jasa Bidang Infrastruktur MKG,iDirect Support,0,3,Tidak Bisa
+Jasa Bidang Infrastruktur MKG,Pemeliharaan Bidang Infrastruktur MKG,0,3,Tidak Bisa
+Jasa Bidang Kesehatan,Jasa Kemitraan Layanan Hemodialisa,5,0,Bisa
+Jasa Bidang Klimatologi,Pemeliharaan Bidang Klimatologi,0,2,Tidak Bisa
+Jasa Bidang Meteorologi,Pemeliharaan Bidang Meteorologi,2,1,Sebagian
+Jasa Bidang Meteorologi,Radar Cuaca Dual Polar C-Band,0,7,Tidak Bisa
+Jasa Bidang Meteorologi,Radar Cuaca Dual Polar S-Band Dual Polarisasi,0,7,Tidak Bisa
+Jasa Bidang Meteorologi,Radar Cuaca Dual Polar X-Band,0,7,Tidak Bisa
+Jasa Bidang Meteorologi,Wind Profiler,0,1,Tidak Bisa
+Jasa Bidang Modifikasi Cuaca,Jasa Pemeliharaan Modifikasi Cuaca,0,2,Tidak Bisa
+Jasa Bidang Modifikasi Cuaca,Sewa Wahana Penghantar,0,1,Tidak Bisa
+Jasa Layanan,Jasa Angkutan Bahan Bakar Minyak (BBM) untuk Kegiatan Angkutan Udara Perintis,0,2,Tidak Bisa
+Jasa Layanan,Jasa Internet Service Provider,0,8,Tidak Bisa
+Jasa Layanan,Jasa Layanan Asuransi,0,4,Tidak Bisa
+Jasa Layanan,Jasa Layanan Catering,0,2,Tidak Bisa
+Jasa Layanan,Jasa Layanan Cloud,0,4,Tidak Bisa
+Jasa Layanan,Jasa Layanan Kalibrasi,0,4,Tidak Bisa
+Jasa Layanan,Jasa Layanan Lainnya,1,4,Sebagian
+Jasa Layanan,Jasa Layanan Pemeliharaan,1,6,Sebagian
+Jasa Layanan,Jasa Layanan Percetakan,3,0,Bisa
+Jasa Layanan,Jasa Layanan Preservasi Non Konstruksi,0,1,Tidak Bisa
+Jasa Layanan,Jasa Layanan Sertifikasi,0,3,Tidak Bisa
+Jasa Layanan,Jasa Layanan Solusi Internet of Things (IoT),0,4,Tidak Bisa
+Jasa Layanan,Jasa Pembuatan Dokumentasi dan Survei,0,1,Tidak Bisa
+Jasa Layanan,Jasa Pengiriman Ekspedisi,0,4,Tidak Bisa
+Jasa Layanan,Jasa Penyelenggaraan Layanan Angkutan Kereta Api Perintis,0,1,Tidak Bisa
+Jasa Layanan,Jasa Penyelenggaraan Layanan Angkutan Penyeberangan Perintis,0,2,Tidak Bisa
+Jasa Layanan,Jasa Penyelenggaraan Layanan Angkutan Transportasi Darat,0,2,Tidak Bisa
+Jasa Layanan,Jasa Penyelenggaraan Layanan Angkutan Transportasi Laut Khusus Barang,0,2,Tidak Bisa
+Jasa Layanan,Jasa Penyelenggaraan Layanan Angkutan Transportasi Laut Khusus Penumpang,0,2,Tidak Bisa
+Jasa Layanan,Jasa Penyelenggaraan Layanan Angkutan Transportasi Laut Khusus Ternak,0,1,Tidak Bisa
+Jasa Layanan,Jasa Penyelenggaraan Layanan Angkutan Transportasi Udara,0,3,Tidak Bisa
+Jasa Layanan,Jasa Penyelenggaraan Manajemen Pengelola dan Pengawasan Layanan Angkutan Transportasi,4,0,Bisa
+Jasa Layanan,Jasa Periklanan,4,0,Bisa
+Jasa Layanan,Jasa Servis Alat Transportasi/Kendaraan,2,5,Sebagian
+Jasa Penyelenggaraan Kegiatan,Jasa Penyelenggaraan Kegiatan Khusus,0,1,Tidak Bisa
+Jasa Sewa Alat Transportasi,Sewa Kendaraan Keperluan Khusus,0,17,Tidak Bisa
+Jasa Sewa Alat Transportasi,Sewa Mobil,0,5,Tidak Bisa
+Jasa Sewa Alat Transportasi,Sewa Mobil Listrik,0,5,Tidak Bisa
+Jasa Sewa Alat Transportasi,Sewa Sepeda Motor,0,5,Tidak Bisa
+Jasa Sewa Alat Transportasi,Sewa Sepeda Motor Listrik,0,4,Tidak Bisa
+Jasa Sewa Alat Transportasi,Sewa Transportasi Lainnya,0,3,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Alat Komunikasi,0,7,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Alat Pendingin Udara,0,2,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Alat Penyaring Udara,0,2,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Alat Perekam,0,4,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Elektronik Dapur,0,1,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Elektronik Lainnya,0,1,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Kamera dan Aksesoris,0,8,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Komputer dan Aksesoris,0,9,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Mesin Arsip,0,3,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Mesin Kantor,0,5,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Networking,0,1,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Perangkat Presentasi,0,3,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Printer dan Supplies,0,5,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Professional Display,0,5,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Scanner,0,3,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Server dan Storage,0,1,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Storage,0,1,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Televisi dan Sound Audio,0,2,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,Sewa Uninterruptible Power Supply (UPS) dan Stabilizer,0,2,Tidak Bisa
+Jasa Sewa Pesawat Angkat,Jasa Sewa Dongkrak,0,3,Tidak Bisa
+Jasa Sewa Pesawat Angkat,Jasa Sewa Keran Angkat,0,40,Tidak Bisa
+Jasa Sewa Pesawat Angkat,Jasa Sewa Personal Platform,0,4,Tidak Bisa
+Jasa Sewa Pesawat Angkut,Jasa Sewa Alat Berat,0,11,Tidak Bisa
+Jasa Sewa Pesawat Angkut,Jasa Sewa Personal Basket,0,2,Tidak Bisa
+Jasa Sewa Pesawat Angkut,Jasa Sewa Robotik dan Konveyor,0,2,Tidak Bisa
+Jasa Sewa Pesawat Angkut,Jasa Sewa Truk,0,5,Tidak Bisa
+Jasa Sewa Pesawat Tenaga dan Produksi,Jasa Sewa Mesin Perkakas dan Produksi,0,3,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Beton (Concrete Works),0,12,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Fondasi (Foundation Works),0,14,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Konstruksi Bangunan Sipil Elektrikal,0,6,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Konstruksi Bangunan Sipil Minyak dan Gas Bumi,0,20,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Konstruksi Bangunan Sipil Pertambangan,0,4,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Pemasangan Pipa/Gorong Gorong Tanpa Galian (Trenchless Pipe/Culvert Installation),0,2,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Penegakan (Erection Works),0,3,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Pengangkatan (Lifting Works),0,4,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Pengeboran Terowongan (Tunnel Boring),0,1,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Pengerukan dan Reklamasi (Dredging and Reclamation Works),0,2,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Penghamparan (Paving Works),0,14,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Survei,0,1,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Pekerjaan Tanah (Earth Works),0,8,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Peralatan Penunjang (Light Equipment),0,7,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Produksi Material,0,4,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,Jasa Sewa Transportasi,0,4,Tidak Bisa
+Jasa Tenaga Kerja,Jasa Operator Angkutan Umum,0,3,Tidak Bisa
+Jasa Tenaga Kerja,Jasa Tenaga Kerja Lainnya,1,5,Sebagian
+Jasa Tenaga Kerja,Jasa Tenaga Kerja Perkantoran,0,9,Tidak Bisa
+Komponen Struktur,Rumah Instan Sederhana Sehat (RISHA),0,1,Tidak Bisa
+Komponen Struktur,Rumah Sistem Panel Instan (RUSPIN),0,2,Tidak Bisa
+Komponen Struktur,Struktur Atas Jembatan Gantung,0,13,Tidak Bisa
+Komponen Struktur,Struktur Atas Jembatan Rangka Baja Panel Darurat,0,1,Tidak Bisa
+Komponen Struktur,Struktur Atas Jembatan Rangka Baja Permanen,0,10,Tidak Bisa
+Makanan dan Minuman,Bahan Kue,0,9,Tidak Bisa
+Makanan dan Minuman,Beras,0,4,Tidak Bisa
+Makanan dan Minuman,Buah-Buahan,0,2,Tidak Bisa
+Makanan dan Minuman,Bumbu dan Bahan Masakan,0,17,Tidak Bisa
+Makanan dan Minuman,Frozen Food,0,16,Tidak Bisa
+Makanan dan Minuman,Makanan Ibu Hamil dan Bayi,0,3,Tidak Bisa
+Makanan dan Minuman,Makanan Ransum,0,2,Tidak Bisa
+Makanan dan Minuman,Makanan Ringan,0,7,Tidak Bisa
+Makanan dan Minuman,Makanan Sarapan,0,7,Tidak Bisa
+Makanan dan Minuman,Makanan Siap Saji,0,5,Tidak Bisa
+Makanan dan Minuman,Minuman,0,10,Tidak Bisa
+Makanan dan Minuman,Sayuran,0,24,Tidak Bisa
+Makanan dan Minuman,Susu,0,5,Tidak Bisa
+Material Dasar Utama,Abu Terbang (Fly Ash),0,3,Tidak Bisa
+Material Dasar Utama,Aspal Buton,0,6,Tidak Bisa
+Material Dasar Utama,Aspal Minyak,0,7,Tidak Bisa
+Material Dasar Utama,Baja,0,39,Tidak Bisa
+Material Dasar Utama,Baja Ringan,0,12,Tidak Bisa
+Material Dasar Utama,Batu,0,7,Tidak Bisa
+Material Dasar Utama,Kayu,0,8,Tidak Bisa
+Material Dasar Utama,Semen,0,10,Tidak Bisa
+Material Dasar Utama,Terak (Slag),0,2,Tidak Bisa
+Material Olahan Utama,Aspal Hot Mix,0,5,Tidak Bisa
+Material Olahan Utama,Bata Ringan,0,3,Tidak Bisa
+Material Olahan Utama,Beton Instan,0,1,Tidak Bisa
+Material Olahan Utama,Beton Pracetak,0,65,Tidak Bisa
+Material Olahan Utama,Beton Ready Mix,0,17,Tidak Bisa
+Material Olahan Utama,Cat,0,12,Tidak Bisa
+Material Olahan Utama,Genteng,0,1,Tidak Bisa
+Material Olahan Utama,Geosintetik,0,3,Tidak Bisa
+Material Olahan Utama,Kaca,0,12,Tidak Bisa
+Material Olahan Utama,Panel Gipsum,0,4,Tidak Bisa
+Material Olahan Utama,Pipa Non Baja,0,6,Tidak Bisa
+Material Olahan Utama,Rock Wool,0,3,Tidak Bisa
+Material Olahan Utama,Saniter,0,1,Tidak Bisa
+Material Olahan Utama,Ubin,0,11,Tidak Bisa
+"Obat, Obat Bahan Alam, Vaksin dan PKMK",Obat,0,5,Tidak Bisa
+"Obat, Obat Bahan Alam, Vaksin dan PKMK",Obat Bahan Alam,0,2,Tidak Bisa
+"Obat, Obat Bahan Alam, Vaksin dan PKMK",Obat Lainnya,0,1,Tidak Bisa
+"Obat, Obat Bahan Alam, Vaksin dan PKMK",Suplemen,0,1,Tidak Bisa
+"Obat, Obat Bahan Alam, Vaksin dan PKMK",Vaksin,0,1,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Aksesoris Laki-Laki,0,11,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Celana Laki-Laki,0,6,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Pakaian Batik dan Etnik Laki-Laki,0,3,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Pakaian Dalam Laki-Laki,0,3,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Pakaian Laki-Laki,0,7,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Pakaian Muslim Laki-Laki,0,6,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Pakaian Seragam Dinas Laki-Laki,0,6,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Pakaian Seragam Narapidana Laki-Laki,0,2,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Pakaian Seragam Sekolah Laki-Laki,0,8,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Sepatu dan Sandal Laki-Laki,0,8,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,Tas Laki-Laki,2,3,Sebagian
+Pakaian dan Aksesoris Perempuan,Aksesoris Perempuan,0,11,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Celana Perempuan,0,7,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Pakaian Batik dan Etnik Perempuan,0,5,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Pakaian Dalam Perempuan,0,3,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Pakaian Muslim Perempuan,0,7,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Pakaian Perempuan,0,7,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Pakaian Seragam Dinas Perempuan,0,6,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Pakaian Seragam Narapidana Perempuan,0,2,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Pakaian Seragam Sekolah Perempuan,0,8,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Sepatu dan Sandal Perempuan,0,9,Tidak Bisa
+Pakaian dan Aksesoris Perempuan,Tas Perempuan,1,5,Sebagian
+Pekerjaan Cetak Sawah,Pekerjaan Land Clearing Lahan Pertanian,0,4,Tidak Bisa
+Pekerjaan Cetak Sawah,Pekerjaan Land Leveling Lahan Pertanian,0,3,Tidak Bisa
+Pekerjaan Cetak Sawah,Pekerjaan Pengolahan Lahan Pertanian,0,2,Tidak Bisa
+Pekerjaan Cetak Sawah,Pekerjaan Persiapan Lahan Pertanian,0,7,Tidak Bisa
+Pekerjaan Cetak Sawah,Pekerjaan Sarana dan Prasarana Lahan Pertanian,0,9,Tidak Bisa
+Peralatan Bidang Geofisika,Accelerograph,0,1,Tidak Bisa
+Peralatan Bidang Geofisika,Intensity Meter,0,1,Tidak Bisa
+Peralatan Bidang Geofisika,Peralatan Kemagnetan Bumi,1,0,Bisa
+Peralatan Bidang Geofisika,Peralatan Lightning Detector,2,0,Bisa
+Peralatan Bidang Geofisika,Peralatan Seismologi Teknik Geofisika Potensial dan Tanda Waktu,10,0,Bisa
+Peralatan Bidang Geofisika,Peralatan Sistem Diseminasi,5,0,Bisa
+Peralatan Bidang Geofisika,Peralatan Sistem Prekursor Gempabumi,1,0,Bisa
+Peralatan Bidang Geofisika,Peralatan Sistem Tanda Waktu,1,0,Bisa
+Peralatan Bidang Geofisika,Peralatan Survey Drone / Airborne,1,0,Bisa
+Peralatan Bidang Geofisika,Peralatan Teropong Hilal,0,1,Tidak Bisa
+Peralatan Bidang Geofisika,Seismograph,0,1,Tidak Bisa
+Peralatan Bidang Geofisika,Suku Cadang Bidang Geofisika,2,0,Bisa
+Peralatan Bidang Infrastruktur MKG,Suku Cadang Infrastruktur MKG,3,0,Bisa
+Peralatan Bidang Klimatologi,Peralatan Cuaca/Iklim,6,0,Bisa
+Peralatan Bidang Klimatologi,Peralatan Kualitas Udara,2,0,Bisa
+Peralatan Bidang Klimatologi,Suku Cadang Bidang Klimatologi,2,0,Bisa
+Peralatan Bidang Meteorologi,AWOS,0,4,Tidak Bisa
+Peralatan Bidang Meteorologi,Peralatan Operasional Pengamatan Udara Atas,5,0,Bisa
+Peralatan Bidang Meteorologi,Suku Cadang Bidang Meteorologi,3,0,Bisa
+Peralatan Bidang Modifikasi Cuaca,Alat Operasional Modifikasi Cuaca,1,0,Bisa
+Peralatan Bidang Modifikasi Cuaca,Bahan Semai,0,2,Tidak Bisa
+Peralatan Bidang Modifikasi Cuaca,Suku Cadang Bidang Modifikasi Cuaca,1,0,Bisa
+Peralatan Dapur,Peralatan Baking Kue,7,0,Bisa
+Peralatan Dapur,Peralatan Dapur Lainnya,5,1,Sebagian
+Peralatan Dapur,Peralatan Makan dan Minum,20,0,Bisa
+Peralatan Dapur,Peralatan Masak,14,0,Bisa
+Peralatan Dapur,Peralatan Pendukung Masak,10,2,Sebagian
+Peralatan Dapur,Perlengkapan Cuci Piring,4,0,Bisa
+Peralatan Elektronik,Alat Komunikasi,2,9,Sebagian
+Peralatan Elektronik,Alat Pendingin Udara,2,0,Bisa
+Peralatan Elektronik,Alat Penyaring Udara,3,0,Bisa
+Peralatan Elektronik,Alat Perekam,3,2,Sebagian
+Peralatan Elektronik,Elektronik Dapur,18,0,Bisa
+Peralatan Elektronik,Elektronik Lainnya,8,0,Bisa
+Peralatan Elektronik,Kamera dan Aksesoris,0,8,Tidak Bisa
+Peralatan Elektronik,Komputer dan Aksesoris,9,0,Bisa
+Peralatan Elektronik,Mesin Arsip,0,4,Tidak Bisa
+Peralatan Elektronik,Mesin Kantor,0,9,Tidak Bisa
+Peralatan Elektronik,Networking,6,0,Bisa
+Peralatan Elektronik,Perangkat Presentasi,5,0,Bisa
+Peralatan Elektronik,Printer dan Supplies,6,0,Bisa
+Peralatan Elektronik,Professional Display,5,0,Bisa
+Peralatan Elektronik,Scanner,4,0,Bisa
+Peralatan Elektronik,Server dan Storage,6,0,Bisa
+Peralatan Elektronik,Storage,4,0,Bisa
+Peralatan Elektronik,Televisi dan Sound Audio,5,0,Bisa
+Peralatan Elektronik,Uninterruptible Power Supply (UPS) dan Stabilizer,3,0,Bisa
+Peralatan Kantor,Bahan Pembersih,13,0,Bisa
+Peralatan Kantor,Furnitur Kantor,31,5,Sebagian
+Peralatan Kantor,Peralatan Kamar Mandi,9,1,Sebagian
+Peralatan Kantor,Peralatan Kamar Tidur,2,5,Sebagian
+Peralatan Kantor,Peralatan Kantor Lainnya,1,1,Sebagian
+Peralatan Kantor,Peralatan Kebersihan,11,1,Sebagian
+Peralatan Kantor,Peralatan Laundry,9,0,Bisa
+Peralatan Olahraga,Peralatan Basket,0,8,Tidak Bisa
+Peralatan Olahraga,Peralatan Berkemah/Camping,0,8,Tidak Bisa
+Peralatan Olahraga,Peralatan Bulu Tangkis,0,8,Tidak Bisa
+Peralatan Olahraga,Peralatan Golf,0,9,Tidak Bisa
+Peralatan Olahraga,Peralatan Gym dan Fitness,0,6,Tidak Bisa
+Peralatan Olahraga,Peralatan Lari,0,4,Tidak Bisa
+Peralatan Olahraga,Peralatan Olahraga Air,0,13,Tidak Bisa
+Peralatan Olahraga,Peralatan Olahraga Atletik,0,11,Tidak Bisa
+Peralatan Olahraga,Peralatan Olahraga Bela Diri,0,12,Tidak Bisa
+Peralatan Olahraga,Peralatan Olahraga Lainnya,0,19,Tidak Bisa
+Peralatan Olahraga,Peralatan Sepak Bola,0,11,Tidak Bisa
+Peralatan Olahraga,Peralatan Sepeda,0,17,Tidak Bisa
+Peralatan Olahraga,Peralatan Tenis,0,7,Tidak Bisa
+Peralatan Olahraga,Peralatan Tenis Meja,0,8,Tidak Bisa
+Peralatan Olahraga,Peralatan Voli,0,6,Tidak Bisa
+Peralatan Pendidikan,Alat Permainan Edukasi,1,5,Sebagian
+Peralatan Pendidikan,Buku Nonteks,3,0,Bisa
+Peralatan Pendidikan,Buku Pendidikan dan Pengatahuan Lainnya,5,0,Bisa
+Peralatan Pendidikan,Buku Teks Pendamping,1,0,Bisa
+Peralatan Pendidikan,Buku Teks Utama,2,0,Bisa
+Peralatan Pendidikan,Furnitur Pendidikan,9,0,Bisa
+Peralatan Pendidikan,Peralatan Penunjang Pendidikan,11,5,Sebagian
+Perangkat Lunak/Software,Software License,9,0,Bisa
+Perawatan Tubuh,Kesehatan Gigi dan Mulut,3,3,Sebagian
+Perawatan Tubuh,Parfum dan Pewangi Tubuh,0,2,Tidak Bisa
+Perawatan Tubuh,Perawatan Kaki dan Tangan,1,7,Sebagian
+Perawatan Tubuh,Perawatan Kulit,0,10,Tidak Bisa
+Perawatan Tubuh,Perawatan Mata,0,1,Tidak Bisa
+Perawatan Tubuh,Perawatan Rambut,3,6,Sebagian
+Perawatan Tubuh,Perawatan Telinga,3,0,Bisa
+Perawatan Tubuh,Perawatan Wajah,1,8,Sebagian
+Perawatan Tubuh,Perlengkapan Mandi,0,6,Tidak Bisa
+Perawatan Tubuh,Produk Kewanitaan,1,1,Sebagian
+Perikanan,Bahan Material Dermaga Apung,0,5,Tidak Bisa
+Perikanan,Bahan Material Keramba Jaring,0,2,Tidak Bisa
+Perikanan,Bahan Material Kolam Budidaya,0,4,Tidak Bisa
+Perikanan,Bahan Material Produksi Garam,0,1,Tidak Bisa
+Perikanan,Benih Ikan,0,4,Tidak Bisa
+Perikanan,Calon Indukan Ikan,0,4,Tidak Bisa
+Perikanan,Hasil Kelautan dan Perikanan,0,1,Tidak Bisa
+Perikanan,Indukan Ikan,0,4,Tidak Bisa
+Perikanan,Kendaraan Perikanan,1,4,Sebagian
+Perikanan,Mesin Kapal Perikanan,4,0,Bisa
+Perikanan,Obat Ikan,0,5,Tidak Bisa
+Perikanan,Pakan Ikan Alami,0,3,Tidak Bisa
+Perikanan,Pakan Ikan Buatan,0,3,Tidak Bisa
+Perikanan,Peralatan dan Mesin Perikanan,10,0,Bisa
+Perkakas,Air Pressured System,7,0,Bisa
+Perkakas,Alat Angkat dan Angkut Elektrik,9,0,Bisa
+Perkakas,Alat Angkat dan Angkut Manual,7,1,Sebagian
+Perkakas,Alat Ukur,8,0,Bisa
+Perkakas,Baut dan Mur,0,7,Tidak Bisa
+Perkakas,Generator Set,4,0,Bisa
+Perkakas,Mesin Industri,3,2,Sebagian
+Perkakas,Peralatan Keamanan dan Keselamatan Kerja,10,6,Sebagian
+Perkakas,Peralatan Keamanan dan Keselamatan Transportasi,4,0,Bisa
+Perkakas,Peralatan Perkakas,5,0,Bisa
+Perkakas,Peralatan Tenaga Surya,5,0,Bisa
+Perkakas,Perkakas Lainnya,2,0,Bisa
+Perkakas,Perlengkapan Cat,1,8,Sebagian
+Perkakas,Perlengkapan Jalan,8,0,Bisa
+Perkakas,Perlengkapan Las dan Solder,4,0,Bisa
+Perkakas,Perlengkapan Ledeng,1,16,Sebagian
+Perkakas,Perlengkapan Listrik,21,0,Bisa
+Perkakas,Tape dan Sealant Perekat,2,2,Sebagian
+Perkakas,Tempat Penyimpanan Lainnya,6,0,Bisa
+Perkakas,Tempat Penyimpanan Perkakas,5,0,Bisa
+Perlengkapan Alat Tulis,Alat Mewarnai,0,4,Tidak Bisa
+Perlengkapan Alat Tulis,Alat Tulis,0,6,Tidak Bisa
+Perlengkapan Alat Tulis,Buku Tulis,8,0,Bisa
+Perlengkapan Alat Tulis,Document Organizer,3,7,Sebagian
+Perlengkapan Alat Tulis,Kertas,0,12,Tidak Bisa
+Perlengkapan Alat Tulis,Pemotong Kertas,0,6,Tidak Bisa
+Perlengkapan Alat Tulis,Pendukung Alat Tulis,0,10,Tidak Bisa
+Perlengkapan Alat Tulis,Penempel Kertas,1,5,Sebagian
+Perlengkapan Alat Tulis,Peralatan Surat,7,0,Bisa
+Perlengkapan Spiritual Adat dan Keagamaan,Perlengkapan Sesajen,0,3,Tidak Bisa
+Pesawat Angkat,Dongkrak,3,0,Bisa
+Pesawat Angkat,Keran Angkat,0,40,Tidak Bisa
+Pesawat Angkat,Personal Platform,4,0,Bisa
+Pesawat Angkut,Alat Berat,11,0,Bisa
+Pesawat Angkut,Personal Basket,2,0,Bisa
+Pesawat Angkut,Robotik dan Konveyor,2,0,Bisa
+Pesawat Angkut,Truk,0,5,Tidak Bisa
+Pesawat Tenaga dan Produksi,Mesin Perkakas dan Produksi,3,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Beton (Concrete Works),12,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Fondasi (Foundation Works),0,14,Tidak Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Konstruksi Bangunan Sipil Elektrikal,6,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Konstruksi Bangunan Sipil Minyak dan Gas Bumi,0,20,Tidak Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Konstruksi Bangunan Sipil Pertambangan,4,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Pemasangan Pipa/Gorong Gorong Tanpa Galian (Trenchless Pipe/Culvert Installation),2,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Penegakan (Erection Works),3,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Pengangkatan (Lifting Works),4,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Pengeboran Terowongan (Tunnel Boring),1,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Pengerukan dan Reklamasi (Dredging and Reclamation Works),2,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Penghamparan (Paving Works),0,14,Tidak Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Survei,1,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Pekerjaan Tanah (Earth Works),0,8,Tidak Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Peralatan Penunjang (Light Equipment),7,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Produksi Material,4,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,Transportasi,0,4,Tidak Bisa
+Sarana dan Prasarana Transportasi,Bus,0,7,Tidak Bisa
+Sarana dan Prasarana Transportasi,Kendaraan Barang,0,6,Tidak Bisa
+Sarana dan Prasarana Transportasi,Mobil Keperluan Khusus,0,8,Tidak Bisa
+Sarana dan Prasarana Transportasi,Mobil Pemadam,0,2,Tidak Bisa
+Sistem Manajemen Keselamatan Konstruksi (SMKK),Penerapan SMKK,0,9,Tidak Bisa
+Sistem Manajemen Keselamatan Konstruksi (SMKK),Penerapan SMKK Bidang Bina Marga,0,1,Tidak Bisa
+Tanaman dan Sarana Pendukung,Alat dan Mesin Pertanian,0,4,Tidak Bisa
+Tanaman dan Sarana Pendukung,Benih dan Bibit Tanaman Hutan,0,4,Tidak Bisa
+Tanaman dan Sarana Pendukung,Benih Tanaman Hortikultura,0,5,Tidak Bisa
+Tanaman dan Sarana Pendukung,Benih Tanaman Pangan,0,2,Tidak Bisa
+Tanaman dan Sarana Pendukung,Benih Tanaman Perkebunan,0,2,Tidak Bisa
+Tanaman dan Sarana Pendukung,Hasil Hutan Bukan Kayu (HHBK) Hewani,0,6,Tidak Bisa
+Tanaman dan Sarana Pendukung,Hasil Hutan Bukan Kayu (HHBK) Nabati,0,9,Tidak Bisa
+Tanaman dan Sarana Pendukung,Hasil Hutan Kayu (HHK),0,7,Tidak Bisa
+Tanaman dan Sarana Pendukung,Pembenah Tanah,0,6,Tidak Bisa
+Tanaman dan Sarana Pendukung,Pestisida,0,2,Tidak Bisa
+Tanaman dan Sarana Pendukung,Prasarana Pendukung,0,9,Tidak Bisa
+Tanaman dan Sarana Pendukung,Pupuk Anorganik,0,6,Tidak Bisa
+Tanaman dan Sarana Pendukung,Pupuk Organik,0,5,Tidak Bisa
+Tanaman dan Sarana Pendukung,Sarana Pendukung,0,17,Tidak Bisa

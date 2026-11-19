@@ -1,0 +1,59 @@
+kategori_utama,bisa,tidak_bisa,status
+Alat Kesehatan,70,0,Bisa
+Alat Laboratorium,26,0,Bisa
+Alat Penunjang Pelayanan Kesehatan,51,3,Sebagian
+Alat Transportasi,41,66,Sebagian
+Bidang Bina Marga 2025,0,77,Tidak Bisa
+Bidang Cipta Karya,0,70,Tidak Bisa
+Bidang Perumahan dan Kawasan Permukiman,0,32,Tidak Bisa
+Bidang Sumber Daya Air,0,214,Tidak Bisa
+Bidang Umum,0,27,Tidak Bisa
+Hadiah Souvenir,1,22,Sebagian
+Hewan dan Ternak,0,28,Tidak Bisa
+Jasa Akomodasi,0,10,Tidak Bisa
+Jasa Bidang Geofisika,0,8,Tidak Bisa
+Jasa Bidang Infrastruktur MKG,0,6,Tidak Bisa
+Jasa Bidang Kesehatan,5,0,Bisa
+Jasa Bidang Klimatologi,0,2,Tidak Bisa
+Jasa Bidang Meteorologi,2,23,Sebagian
+Jasa Bidang Modifikasi Cuaca,0,3,Tidak Bisa
+Jasa Layanan,15,65,Sebagian
+Jasa Penyelenggaraan Kegiatan,0,1,Tidak Bisa
+Jasa Sewa Alat Transportasi,0,39,Tidak Bisa
+Jasa Sewa Peralatan Elektronik,0,65,Tidak Bisa
+Jasa Sewa Pesawat Angkat,0,47,Tidak Bisa
+Jasa Sewa Pesawat Angkut,0,20,Tidak Bisa
+Jasa Sewa Pesawat Tenaga dan Produksi,0,3,Tidak Bisa
+Jasa Sewa Pesawat/Peralatan Konstruksi Lainnya,0,106,Tidak Bisa
+Jasa Tenaga Kerja,1,17,Sebagian
+Komponen Struktur,0,27,Tidak Bisa
+Makanan dan Minuman,0,111,Tidak Bisa
+Material Dasar Utama,0,94,Tidak Bisa
+Material Olahan Utama,0,144,Tidak Bisa
+"Obat, Obat Bahan Alam, Vaksin dan PKMK",0,10,Tidak Bisa
+Pakaian dan Aksesoris Laki-Laki,2,63,Sebagian
+Pakaian dan Aksesoris Perempuan,1,70,Sebagian
+Pekerjaan Cetak Sawah,0,25,Tidak Bisa
+Peralatan Bidang Geofisika,23,4,Sebagian
+Peralatan Bidang Infrastruktur MKG,3,0,Bisa
+Peralatan Bidang Klimatologi,10,0,Bisa
+Peralatan Bidang Meteorologi,8,4,Sebagian
+Peralatan Bidang Modifikasi Cuaca,2,2,Sebagian
+Peralatan Dapur,60,3,Sebagian
+Peralatan Elektronik,89,32,Sebagian
+Peralatan Kantor,76,13,Sebagian
+Peralatan Olahraga,0,147,Tidak Bisa
+Peralatan Pendidikan,32,10,Sebagian
+Perangkat Lunak/Software,9,0,Bisa
+Perawatan Tubuh,12,44,Sebagian
+Perikanan,15,40,Sebagian
+Perkakas,112,42,Sebagian
+Perlengkapan Alat Tulis,19,50,Sebagian
+Perlengkapan Spiritual Adat dan Keagamaan,0,3,Tidak Bisa
+Pesawat Angkat,7,40,Sebagian
+Pesawat Angkut,15,5,Sebagian
+Pesawat Tenaga dan Produksi,3,0,Bisa
+Pesawat/Peralatan Konstruksi Lainnya,46,60,Sebagian
+Sarana dan Prasarana Transportasi,0,23,Tidak Bisa
+Sistem Manajemen Keselamatan Konstruksi (SMKK),0,10,Tidak Bisa
+Tanaman dan Sarana Pendukung,0,84,Tidak Bisa

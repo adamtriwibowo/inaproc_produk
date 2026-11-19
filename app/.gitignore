@@ -1,0 +1,7 @@
+.venv/
+storage/
+storage_test/
+__pycache__/
+node_modules/
+dist/
+.env

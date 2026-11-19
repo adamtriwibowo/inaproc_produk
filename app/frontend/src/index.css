@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 18 78 82;       /* #124E52 teal tinta */
+  --on-primary: 255 255 255;
+  --accent: 242 183 5;       /* #F2B705 kuning label kargo: hanya penanda/aksen, bukan teks */
+  --side: 14 52 56;          /* #0E3438 sidebar */
+  --bg: 242 245 244;         /* #F2F5F4 kertas dingin */
+  --card: 255 255 255;
+  --fg: 15 31 34;
+  --muted: 228 235 234;
+  --muted-fg: 65 84 86;
+  --line: 207 218 217;
+  --ok: 21 128 61;   --ok-bg: 220 252 231;
+  --warn: 146 84 6;  --warn-bg: 254 243 199;
+  --bad: 185 28 28;  --bad-bg: 254 226 226;
+}
+
+html { font-size: 15px; scrollbar-gutter: stable; }
+body { @apply bg-bg text-fg font-sans antialiased; margin: 0; }
+button, a, select, summary, label[for], [role='button'] { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+
+/* fokus keyboard selalu terlihat */
+:focus-visible { outline: 2px solid rgb(var(--primary)); outline-offset: 2px; border-radius: 4px; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-line bg-card px-3 min-h-[36px] text-sm font-medium text-fg transition-colors duration-200 hover:bg-muted disabled:opacity-50; }
+  .btn-primary { @apply border-primary bg-primary text-on-primary hover:bg-primary/90; }
+  .btn-danger { @apply border-bad bg-bad text-white hover:bg-bad/90; }
+  .btn-sm { @apply min-h-[30px] px-2 text-xs; }
+  .input { @apply w-full rounded-md border border-line bg-card px-2.5 min-h-[36px] text-sm placeholder:text-muted-fg/70; }
+  .label { @apply mb-1 block text-xs font-medium text-muted-fg; }
+  .card { @apply rounded-lg border border-line bg-card; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium; }
+  .th { @apply px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted-fg; }
+  .td { @apply px-3 py-2 text-sm; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

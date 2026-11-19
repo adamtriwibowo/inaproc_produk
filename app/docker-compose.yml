@@ -1,0 +1,14 @@
+services:
+  app:
+    build: { context: .., dockerfile: app/Dockerfile }
+    ports: ["8080:8080"]
+    environment:
+      INAPROC_ADMIN_EMAIL: ${INAPROC_ADMIN_EMAIL:-admin@example.local}
+      INAPROC_ADMIN_PASSWORD: ${INAPROC_ADMIN_PASSWORD:?isi INAPROC_ADMIN_PASSWORD di file .env}
+      INAPROC_COOKIE_SECURE: ${INAPROC_COOKIE_SECURE:-0}
+    volumes:
+      - ../data:/kit/data:ro
+      - ../templates:/kit/templates:ro
+      - storage:/storage
+volumes:
+  storage:
