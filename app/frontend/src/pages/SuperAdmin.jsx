@@ -1,9 +1,47 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { api } from '../api.js'
 import { useAuth } from '../auth.jsx'
 import { Chip, ErrorBox, Loading, PageHeader, useLoad, useToast } from '../components/ui.jsx'
+import { KeyRound, ShieldAlert } from 'lucide-react'
+
+function GlobalAi() {
+  const toast = useToast()
+  const st = useLoad(() => api('/admin/ai'), [])
+  const [key, setKey] = useState('')
+  const [quota, setQuota] = useState('')
+  const [noRet, setNoRet] = useState(false)
+  const [err, setErr] = useState(null)
+  useEffect(() => { if (st.data) { setQuota(st.data.quota_usd ?? ''); setNoRet(st.data.no_data_retention) } }, [st.data])
+  const save = async (body, msg) => { setErr(null); try { await api('/admin/ai', { method: 'PUT', body }); toast(msg); setKey(''); st.reload() } catch (x) { setErr(x) } }
+  if (st.loading) return null
+  return (
+    <section className="card mb-4 p-5">
+      <h2 className="mb-1 text-base font-bold">AI (OpenRouter): pengaturan organisasi</h2>
+      <p className="mb-3 text-sm text-muted-fg">Key dan batas ini dipakai semua perusahaan yang tidak punya key sendiri. Admin Perusahaan mengatur model dan kuota per perusahaan.</p>
+      <ErrorBox error={err || st.error} />
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div>
+          <Chip tone={st.data?.has_key ? 'ok' : 'warn'}>{st.data?.has_key ? 'Key organisasi aktif' : 'Belum ada key organisasi'}</Chip>
+          <label className="label mt-3" htmlFor="gk">API key OpenRouter</label>
+          <div className="flex gap-2">
+            <input id="gk" type="password" autoComplete="off" className="input font-mono" placeholder="sk-or-…" value={key} onChange={(e) => setKey(e.target.value)} />
+            <button className="btn btn-primary shrink-0" disabled={!key.trim()} onClick={() => save({ api_key: key.trim() }, 'Key disimpan')}><KeyRound className="h-4 w-4" /> Simpan</button>
+          </div>
+          {st.data?.has_key && <button className="mt-2 text-sm font-semibold text-bad hover:underline" onClick={() => confirm('Hapus key organisasi?') && save({ clear_key: true }, 'Key dihapus')}>Hapus key</button>}
+        </div>
+        <div>
+          <label className="label" htmlFor="gq">Batas kuota bulanan bawaan (USD)</label>
+          <input id="gq" type="number" min="0" step="0.5" className="input" placeholder="Tanpa batas" value={quota} onChange={(e) => setQuota(e.target.value)} />
+          <label className="mt-3 flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1" checked={noRet} onChange={(e) => setNoRet(e.target.checked)} /> Hanya provider yang tidak menyimpan data</label>
+          <button className="btn mt-3" onClick={() => save(quota === '' ? { clear_quota: true, no_data_retention: noRet } : { quota_usd: Number(quota), no_data_retention: noRet }, 'Disimpan')}>Simpan batas</button>
+        </div>
+      </div>
+      <p className="mt-3 flex gap-2 rounded-lg bg-warn-bg/60 p-3 text-sm text-warn"><ShieldAlert className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />{st.data?.privasi}</p>
+    </section>
+  )
+}
 
 const ROLES = { admin: 'Admin Perusahaan', operator: 'Operator Input', reviewer: 'Reviewer' }
 
@@ -48,6 +86,8 @@ export default function SuperAdmin() {
           </table>
         )}
       </section>
+
+      <GlobalAi />
 
       <div className="grid gap-4 lg:grid-cols-2">
         <section className="card p-4">

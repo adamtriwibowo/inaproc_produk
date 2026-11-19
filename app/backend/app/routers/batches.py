@@ -99,7 +99,7 @@ def evaluate(ctx: Ctx, b: Batch):
     rows = rows_of(ctx, b)
     photos = photos_of(ctx, b)
     vctx = prepare_ctx(rows, photos, existing_names(ctx, b))
-    out, n_err, n_warn, guess, no_link = [], 0, 0, 0, 0
+    out, n_err, n_warn, guess, no_link, n_draf = [], 0, 0, 0, 0, 0
     per_cat: dict = {}
     warnings = []
     for r in rows:
@@ -128,12 +128,17 @@ def evaluate(ctx: Ctx, b: Batch):
             if h:
                 pc["harga_min"] = h if pc["harga_min"] is None else min(pc["harga_min"], h)
                 pc["harga_max"] = h if pc["harga_max"] is None else max(pc["harga_max"], h)
+        draf = r.origin == "Draf AI"
+        if draf and not r.confirmed_at:
+            n_draf += 1
         out.append({"id": r.id, "schema_id": r.schema_id, "position": r.position, "data": r.data,
                     "kbki_guess": r.kbki_guess, "issues": issues,
-                    "upload_status": r.upload_status, "upload_message": r.upload_message})
+                    "upload_status": r.upload_status, "upload_message": r.upload_message,
+                    "origin": r.origin or "Manual", "confirmed": bool(r.confirmed_at), "ai_meta": r.ai_meta if draf else {}})
     summ = {"total": len(rows), "error": n_err, "warn": n_warn, "kbki_tebakan": guess, "foto_tanpa_link": no_link,
             "per_kategori": per_cat, "peringatan": warnings,
-            "baris_error": sum(1 for o in out if any(i["level"] == "error" for i in o["issues"]))}
+            "baris_error": sum(1 for o in out if any(i["level"] == "error" for i in o["issues"])),
+            "draf_belum_konfirmasi": n_draf}
     return out, summ
 
 
@@ -202,7 +207,9 @@ def get_one(bid: int, ctx: Ctx = Depends(any_member)):
     b = get_batch(ctx, bid)
     rows, summ = evaluate(ctx, b)
     reviewer = ctx.session.get(User, b.reviewed_by).email if b.reviewed_by else ""
+    from .ai import sources_for_batch
     return {"batch": batch_dict(b, ctx.session), "rows": rows, "ringkasan": summ, "reviewer": reviewer,
+            "sumber": sources_for_batch(ctx.session, ctx.company.id, [r["id"] for r in rows if r["origin"] == "Draf AI"]),
             "photos": [{"id": p.id, "row_id": p.row_id, "filename": p.filename, "public_url": p.public_url,
                         "width": p.width, "height": p.height, "size": p.size, "kind": p.kind} for p in photos_of(ctx, b)]}
 
@@ -326,6 +333,8 @@ def submit(bid: int, ctx: Ctx = Depends(need("admin", "operator"))):
         raise HTTPException(422, "Batch kosong")
     if summ["error"]:
         raise HTTPException(422, f"Masih ada {summ['error']} error validasi pada {summ['baris_error']} baris — perbaiki dulu")
+    if summ["draf_belum_konfirmasi"]:
+        raise HTTPException(422, f"Ada {summ['draf_belum_konfirmasi']} baris Draf AI yang belum dikonfirmasi Operator")
     set_status(ctx, b, "Diajukan")
     return batch_dict(b, ctx.session)
 
@@ -344,6 +353,8 @@ def approve(bid: int, ctx: Ctx = Depends(need("reviewer"))):
     _rows, summ = evaluate(ctx, b)
     if summ["error"]:
         raise HTTPException(422, "Batch masih memiliki error validasi")
+    if summ["draf_belum_konfirmasi"]:
+        raise HTTPException(422, "Masih ada baris Draf AI yang belum dikonfirmasi Operator")
     b.reviewed_by, b.review_note = ctx.user.id, ""
     set_status(ctx, b, "Disetujui")
     return batch_dict(b, ctx.session)

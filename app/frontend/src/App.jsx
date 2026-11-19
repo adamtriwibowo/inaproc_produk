@@ -13,6 +13,7 @@ import Batches from './pages/Batches.jsx'
 import BatchEditor from './pages/BatchEditor.jsx'
 import Members from './pages/Members.jsx'
 import Audit from './pages/Audit.jsx'
+import AiSettings from './pages/AiSettings.jsx'
 import SuperAdmin from './pages/SuperAdmin.jsx'
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="batch/:bid" element={<BatchEditor />} />
         <Route path="anggota" element={<Members />} />
         <Route path="audit" element={<Audit />} />
+        <Route path="ai" element={<AiSettings />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -6,6 +6,7 @@ os.environ["INAPROC_STORAGE_DIR"] = _tmp
 os.environ["INAPROC_ADMIN_EMAIL"] = "admin@test.local"
 os.environ["INAPROC_ADMIN_PASSWORD"] = "Admin-Test-123"
 os.environ["INAPROC_SEED"] = "1"
+os.environ["INAPROC_AI_SYNC"] = "1"
 
 import pytest  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402

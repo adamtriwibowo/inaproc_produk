@@ -12,6 +12,8 @@ from .db import init_db, session_scope
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
+    from .ai import jobs
+    jobs.fail_interrupted()
     if config.SEED_ON_START:
         from .services.seed import run_seed
         with session_scope() as s:
@@ -21,9 +23,9 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="INAPROC Bulk Upload Assistant", lifespan=lifespan)
 
-from .routers import admin, auth, batches, company, kelayakan, photos, templates  # noqa: E402
+from .routers import admin, ai, auth, batches, company, kelayakan, photos, templates  # noqa: E402
 
-for r in (auth.router, admin.router, company.router, kelayakan.router, templates.router, batches.router, photos.router):
+for r in (auth.router, admin.router, ai.router, ai.admin_router, company.router, kelayakan.router, templates.router, batches.router, photos.router):
     app.include_router(r)
 
 

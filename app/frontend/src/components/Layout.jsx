@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { NavLink, Navigate, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 import {
   Boxes, Building2, Check, ChevronDown, ChevronsLeft, ChevronsRight, ChevronsUpDown, ClipboardList, FileSpreadsheet, History,
-  LayoutDashboard, LogOut, Menu, Moon, PackagePlus, Search, ShieldCheck, Sparkles, Sun, Tags, Users, X,
+  LayoutDashboard, LogOut, Menu, Moon, PackagePlus, Search, ShieldCheck, Sparkles, SlidersHorizontal, Sun, Tags, Users, X,
 } from 'lucide-react'
 import { useAuth, roleIn, LAST_KEY } from '../auth.jsx'
 import { CompanyContext } from '../company.js'
@@ -26,6 +26,7 @@ const GROUPS = [
     title: 'Kelola',
     items: [
       { to: 'anggota', label: 'Anggota', icon: Users, roles: ['admin'] },
+      { to: 'ai', label: 'Pengaturan AI', icon: SlidersHorizontal, roles: ['admin'] },
       { to: 'audit', label: 'Jejak aktivitas', icon: History, roles: ['admin', 'reviewer'] },
     ],
   },

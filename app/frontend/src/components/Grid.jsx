@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react'
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
-import { ArrowDownToLine, Copy, Trash2 } from 'lucide-react'
+import { ArrowDownToLine, Copy, Sparkles, Trash2 } from 'lucide-react'
 
 const SHORT = {
   D: 'Nama Produk', E: 'Foto Utama (link .png)', F: 'Foto 2', G: 'Foto 3', H: 'Foto 4', I: 'Foto 5', J: 'URL Video', K: 'Deskripsi',
@@ -44,14 +44,14 @@ const issueMap = (row) => {
   return m
 }
 
-const Cell = memo(function Cell({ rowId, col, value, schema, issue, disabled, readOnly, onChange, onKeyDown, onPaste }) {
+const Cell = memo(function Cell({ rowId, col, value, schema, issue, source, disabled, readOnly, onChange, onKeyDown, onPaste }) {
   const id = `cell-${rowId}-${col.letter}`
   const opts = optionsFor(schema, col)
   const cls = `block w-full border-0 bg-transparent px-2 py-1.5 text-sm outline-none focus:bg-primary/5 ${NUMERIC.has(col.letter) ? 'font-mono' : ''}`
   if (disabled) return <td className="bg-muted/60" style={{ minWidth: colWidth(col) }}><div className="px-2 py-1.5 text-xs text-muted-fg">—</div></td>
   const tone = issue ? (issue.level === 'error' ? 'shadow-[inset_0_0_0_1.5px_rgb(var(--bad))] bg-bad-bg/60' : 'shadow-[inset_0_0_0_1.5px_rgb(var(--warn))] bg-warn-bg/60') : ''
   return (
-    <td className={`relative border-b border-r border-line/70 p-0 ${tone}`} style={{ minWidth: colWidth(col) }} title={issue?.msg}>
+    <td className={`relative border-b border-r border-line/70 p-0 ${tone}`} style={{ minWidth: colWidth(col) }} title={[issue?.msg, source && `Sumber AI: ${source.file}, ${source.lokasi}${source.kutipan ? ` — “${source.kutipan}”` : ''}${source.terverifikasi ? '' : ' (tidak terverifikasi otomatis)'}`].filter(Boolean).join('\n') || undefined}>
       {opts && opts.length <= 400 ? (
         <select
           id={id} className={cls} value={value ?? ''} disabled={readOnly} aria-label={col.full} aria-invalid={issue?.level === 'error'}
@@ -70,16 +70,17 @@ const Cell = memo(function Cell({ rowId, col, value, schema, issue, disabled, re
       )}
     </td>
   )
-}, (a, b) => a.value === b.value && a.issue === b.issue && a.schema === b.schema && a.disabled === b.disabled && a.readOnly === b.readOnly && a.col === b.col)
+}, (a, b) => a.value === b.value && a.issue === b.issue && a.source === b.source && a.schema === b.schema && a.disabled === b.disabled && a.readOnly === b.readOnly && a.col === b.col)
 
-const Row = memo(function Row({ row, index, cols, schema, schemasOfJenis, readOnly, handlers }) {
+const Row = memo(function Row({ row, index, cols, schema, schemasOfJenis, readOnly, handlers, sources }) {
   const im = issueMap(row)
   const nErr = (row.issues || []).filter((i) => i.level === 'error').length
   return (
-    <tr className="group hover:bg-primary/[0.03]">
+    <tr className={`group hover:bg-primary/[0.03] ${row.origin === 'Draf AI' && !row.confirmed ? 'bg-primary/[0.04]' : ''}`}>
       <td className="sticky left-0 z-10 border-b border-r border-line bg-card px-1 text-center">
         <div className="flex items-center justify-center gap-0.5">
           <span className="w-6 font-mono text-xs text-muted-fg">{index + 1}</span>
+          {row.origin === 'Draf AI' && <span title={row.confirmed ? 'Draf AI — sudah dikonfirmasi' : 'Draf AI — belum dikonfirmasi'} className={row.confirmed ? 'text-ok' : 'text-primary'}><Sparkles className="h-3.5 w-3.5" aria-label="Draf AI" /></span>}
           {!readOnly && (
             <>
               <button className="rounded p-1 text-muted-fg hover:bg-muted" title="Duplikat baris" aria-label={`Duplikat baris ${index + 1}`} onClick={() => handlers.duplicate(row)}><Copy className="h-3.5 w-3.5" /></button>
@@ -102,7 +103,7 @@ const Row = memo(function Row({ row, index, cols, schema, schemasOfJenis, readOn
       {cols.map((c) => (
         <Cell
           key={c.key} rowId={row.id} col={c} value={row.data[c.letter]} schema={schema}
-          issue={im[c.letter]} disabled={!c.schemaIds.has(row.schema_id)} readOnly={readOnly}
+          issue={im[c.letter]} source={sources?.[row.id]?.[c.letter]} disabled={!c.schemaIds.has(row.schema_id)} readOnly={readOnly}
           onChange={handlers.edit} onKeyDown={handlers.keyDown} onPaste={handlers.paste}
         />
       ))}
@@ -110,7 +111,7 @@ const Row = memo(function Row({ row, index, cols, schema, schemasOfJenis, readOn
   )
 })
 
-export default function Grid({ rows, cols, schemas, schemasOfJenis, readOnly, handlers }) {
+export default function Grid({ rows, cols, schemas, schemasOfJenis, readOnly, handlers, sources }) {
   const byId = useMemo(() => Object.fromEntries(schemas.map((s) => [s.id, s])), [schemas])
   const helper = createColumnHelper()
   const columns = useMemo(() => [
@@ -154,7 +155,7 @@ export default function Grid({ rows, cols, schemas, schemasOfJenis, readOnly, ha
         <tbody>
           {table.getRowModel().rows.map((r, i) => (
             <Row key={r.original.id} row={r.original} index={i} cols={cols} schema={byId[r.original.schema_id]}
-              schemasOfJenis={schemasOfJenis} readOnly={readOnly} handlers={handlers} />
+              schemasOfJenis={schemasOfJenis} readOnly={readOnly} handlers={handlers} sources={sources} />
           ))}
         </tbody>
       </table>

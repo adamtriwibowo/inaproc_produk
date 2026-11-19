@@ -119,6 +119,13 @@ class ProductRow(SQLModel, table=True):
     kbki_guess: bool = False
     upload_status: str = ""            # "" | berhasil | gagal
     upload_message: str = ""
+    # --- Fase 2 (AI) ---
+    origin: str = "Manual"             # Manual | Draf AI
+    confirmed_by: Optional[int] = None
+    confirmed_at: Optional[datetime] = None
+    confirmed_ack: list = Field(default_factory=list, sa_column=Column(JSON))   # kolom kritis yang dikonfirmasi
+    ai_original: dict = Field(default_factory=dict, sa_column=Column(JSON))     # nilai asli AI (audit akurasi)
+    ai_meta: dict = Field(default_factory=dict, sa_column=Column(JSON))         # skor kategori, alternatif, dll.
 
 
 class Photo(SQLModel, table=True):
@@ -153,4 +160,99 @@ class UploadHistory(SQLModel, table=True):
     result: str = "berhasil"           # berhasil | gagal
     message: str = ""
     user_id: Optional[int] = None
+    ts: datetime = Field(default_factory=now)
+
+
+# ================= Fase 2: AI =================
+class AiSettings(SQLModel, table=True):
+    """company_id kosong = pengaturan global organisasi (Super Admin)."""
+    id: Optional[int] = Field(default=None, primary_key=True)
+    company_id: Optional[int] = Field(default=None, index=True)
+    api_key_enc: str = ""                                   # terenkripsi (Fernet); tidak pernah dikirim ke frontend
+    slots: dict = Field(default_factory=dict, sa_column=Column(JSON))   # {"model_ekstraksi": {"model":..,"fallback":..}, ...}
+    quota_usd: Optional[float] = None                       # kuota bulanan
+    name_pattern: str = "[Jenis] [Merek] [Tipe] [Spesifikasi kunci]"
+    no_data_retention: bool = False                         # provider routing: data_collection=deny
+    image_generate_enabled: bool = False                    # tahap 4
+    updated_at: datetime = Field(default_factory=now)
+
+
+class AiUsage(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    company_id: int = Field(index=True)
+    user_id: Optional[int] = None
+    batch_id: Optional[int] = None
+    job_id: Optional[int] = None
+    slot: str = ""
+    model: str = ""
+    provider: str = ""
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+    cost_usd: float = 0.0
+    duration_ms: int = 0
+    status: str = "ok"                 # ok | error | gagal_validasi
+    note: str = ""
+    ts: datetime = Field(default_factory=now, index=True)
+
+
+class AiJob(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    company_id: int = Field(index=True)
+    batch_id: Optional[int] = None
+    user_id: Optional[int] = None
+    kind: str = "impor"
+    status: str = "antri"              # antri | berjalan | selesai | gagal | dibatalkan
+    progress: int = 0                  # 0-100
+    message: str = ""
+    params: dict = Field(default_factory=dict, sa_column=Column(JSON))
+    result: dict = Field(default_factory=dict, sa_column=Column(JSON))
+    created_at: datetime = Field(default_factory=now)
+    finished_at: Optional[datetime] = None
+
+
+class SourceDoc(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    company_id: int = Field(index=True)
+    batch_id: Optional[int] = None
+    filename: str
+    kind: str = "xlsx"                 # xlsx | csv | pdf | image
+    path: str
+    size: int = 0
+    sha256: str = ""
+    uploaded_by: Optional[int] = None
+    created_at: datetime = Field(default_factory=now)
+
+
+class CellSource(SQLModel, table=True):
+    """Sumber setiap isian yang diisi AI: file, lokasi, dan potongan teks asli."""
+    id: Optional[int] = Field(default=None, primary_key=True)
+    company_id: int = Field(index=True)
+    row_id: int = Field(index=True)
+    col: str
+    doc_id: Optional[int] = None
+    doc_name: str = ""
+    location: str = ""                 # mis. "baris 12", "halaman 3"
+    quote: str = ""
+    verified: bool = True              # False = tidak bisa diverifikasi otomatis (mis. PDF)
+
+
+class PricingRule(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    company_id: int = Field(index=True)
+    scope: str = "semua"               # semua | l1 | l2 | l3
+    category_name: str = ""            # nama L1/L2/L3 sesuai scope
+    markup_pct: float = 0.0
+    rounding: int = 0                  # bulatkan ke kelipatan ini (0 = tanpa pembulatan)
+    min_price: int = 0
+
+
+class AiFinding(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    company_id: int = Field(index=True)
+    batch_id: int = Field(index=True)
+    row_id: Optional[int] = None
+    col: str = ""
+    kind: str = ""
+    message: str = ""
+    severity: str = "warn"             # warn | info
     ts: datetime = Field(default_factory=now)

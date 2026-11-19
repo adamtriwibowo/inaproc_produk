@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { AlertTriangle, ArrowLeft, Download, FileUp, FlaskConical, Plus, Send } from 'lucide-react'
+import { AlertTriangle, ArrowLeft, Download, FileUp, FlaskConical, Plus, Send, Sparkles } from 'lucide-react'
 import { api, C, download } from '../api.js'
 import { useCompany } from '../company.js'
 import { Chip, ErrorBox, Loading, Spinner, statusTone, useLoad, useToast } from '../components/ui.jsx'
 import Grid, { buildColumns, optionsFor } from '../components/Grid.jsx'
 import { useBatchRows } from '../useBatchRows.js'
+import { AiConfirmModal, AiImportModal } from '../components/AiImport.jsx'
 import PhotosTab from './PhotosTab.jsx'
 import ReviewTab from './ReviewTab.jsx'
 import HistoryTab from './HistoryTab.jsx'
@@ -35,8 +36,14 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
   const [err, setErr] = useState(null)
   const [busy, setBusy] = useState(false)
   const [showErrors, setShowErrors] = useState(true)
+  const [aiOpen, setAiOpen] = useState(false)
+  const [confirmOpen, setConfirmOpen] = useState(false)
+  const [critical, setCritical] = useState({})
+  const [aiReady, setAiReady] = useState(null)
   const importRef = useRef(null)
   const bid = batch.id
+  useEffect(() => { api(`${C(cid)}/ai/status`).then((s) => setAiReady(s)).catch(() => setAiReady(null)) }, [cid])
+  useEffect(() => { api(`${C(cid)}/ai/critical`).then(setCritical).catch(() => {}) }, [cid])
 
   const store = useBatchRows(cid, bid, init.rows, setSummary)
   const { rows } = store
@@ -187,6 +194,8 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
   const nErr = errorItems.filter((x) => x.level === 'error').length
 
   const canSubmit = (role === 'admin' || role === 'operator') && EDITABLE.includes(batch.status)
+  const nDraf = summary.draf_belum_konfirmasi || 0
+  const aiBlocked = !aiReady?.siap ? 'API key OpenRouter belum diatur (Pengaturan AI)' : aiReady?.kuota?.exhausted ? 'Kuota AI bulan ini habis' : ''
 
   return (
     <>
@@ -200,8 +209,8 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
           {store.saving ? <><Spinner /> Menyimpan…</> : 'Tersimpan otomatis'}
         </span>
         {canSubmit && (
-          <button className="btn btn-primary" disabled={busy || nErr > 0 || rows.length === 0} onClick={() => action('submit', null, 'Batch diajukan ke Reviewer')}
-            title={nErr > 0 ? 'Perbaiki semua error dulu' : ''}>
+          <button className="btn btn-primary" disabled={busy || nErr > 0 || nDraf > 0 || rows.length === 0} onClick={() => action('submit', null, 'Batch diajukan ke Reviewer')}
+            title={nErr > 0 ? 'Perbaiki semua error dulu' : nDraf > 0 ? 'Konfirmasi semua Draf AI dulu' : ''}>
             <Send className="h-4 w-4" /> Ajukan ke Review
           </button>
         )}
@@ -214,6 +223,13 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
       )}
       {batch.review_note && batch.status === 'Perlu Perbaikan' && (
         <div role="alert" className="mb-3 rounded-md border border-warn/40 bg-warn-bg p-2.5 text-sm text-warn"><b>Catatan Reviewer:</b> {batch.review_note}</div>
+      )}
+      {nDraf > 0 && (
+        <div className="mb-3 flex flex-wrap items-center gap-3 rounded-lg border border-primary/25 bg-primary/[0.06] p-3 text-sm">
+          <Sparkles className="h-4 w-4 shrink-0 text-primary" aria-hidden />
+          <span className="flex-1"><b>{nDraf} baris Draf AI</b> belum dikonfirmasi. Batch tidak bisa diajukan sebelum Operator mengonfirmasinya.</span>
+          {(role === 'admin' || role === 'operator') && <button className="btn btn-primary btn-sm" onClick={() => setConfirmOpen(true)}>Tinjau & konfirmasi</button>}
+        </div>
       )}
       <ErrorBox error={err || store.error} />
 
@@ -240,6 +256,7 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
                 <button className="btn btn-sm" onClick={() => addRows(10)}><Plus className="h-4 w-4" /> 10 baris</button>
                 <input ref={importRef} type="file" accept=".xlsx" hidden onChange={importForm} />
                 <button className="btn btn-sm" disabled={busy} onClick={() => importRef.current.click()}><FileUp className="h-4 w-4" /> Impor Form_Data_Produk.xlsx</button>
+                <button className="btn btn-sm border-primary/40 text-primary" disabled={!!aiBlocked} title={aiBlocked || 'AI membuat draf dari price list, PDF, atau foto label'} onClick={() => setAiOpen(true)}><Sparkles className="h-4 w-4" /> Impor dokumen (AI)</button>
                 <label className="flex items-center gap-1 text-xs text-muted-fg">Preset PDN
                   <select className="input !min-h-[30px] w-24 !py-0 text-xs" value={batch.pdn_preset} onChange={async (e) => { setBatch(await api(`${C(cid)}/batches/${bid}`, { method: 'PATCH', body: { pdn_preset: e.target.value } })) }}>
                     <option>Lokal</option><option>Impor</option>
@@ -270,7 +287,7 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
                   Belum ada produk {jenis}. {editable ? 'Klik “+ Baris”, tempel dari Excel, atau impor Form_Data_Produk.xlsx.' : ''}
                 </div>
               ) : (
-                <Grid rows={gridRows} cols={cols} schemas={schemas} schemasOfJenis={schemasOfJenis} readOnly={!editable} handlers={handlers} />
+                <Grid rows={gridRows} cols={cols} schemas={schemas} schemasOfJenis={schemasOfJenis} readOnly={!editable} handlers={handlers} sources={init.sumber} />
               )}
             </div>
             {showErrors && errorItems.length > 0 && (
@@ -292,6 +309,9 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
           </div>
         </>
       )}
+
+      {aiOpen && <AiImportModal cid={cid} bid={bid} onClose={() => setAiOpen(false)} onDone={() => { setAiOpen(false); reloadAll() }} />}
+      {confirmOpen && <AiConfirmModal cid={cid} bid={bid} rows={rows} critical={critical} schemaOf={schemaOf} onClose={() => setConfirmOpen(false)} onDone={() => { setConfirmOpen(false); reloadAll() }} />}
 
       {tab === 'foto' && (
         <PhotosTab cid={cid} bid={bid} batch={batch} rows={rows} photos={photos} editable={editable} onChanged={async () => { await refreshBatch(); reloadAll() }} schemaOf={schemaOf} />
