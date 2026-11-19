@@ -17,21 +17,21 @@ export default function Rekomendasi() {
   return (
     <>
       <PageHeader
-        title="Rekomendasi Kategori"
+        title="Rekomendasi kategori"
         subtitle={`${data.length} kategori “Bisa” yang belum punya produk, diurutkan menurut prioritas.`}
         actions={<button className="btn" onClick={() => download(`${C(cid)}/kelayakan/export.xlsx`, 'rekap_kelayakan_kategori.xlsx')}><Download className="h-4 w-4" /> Ekspor Excel</button>}
       />
-      <div className="mb-3 flex flex-wrap items-center gap-2">
+      <div className="mb-4 flex flex-wrap items-center gap-3">
         <div className="relative w-full max-w-sm">
-          <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-fg" aria-hidden />
-          <input className="input pl-8" placeholder="Cari…" aria-label="Cari rekomendasi" value={q} onChange={(e) => setQ(e.target.value)} />
+          <Search className="pointer-events-none absolute left-3 top-[11px] h-4 w-4 text-muted-fg" aria-hidden />
+          <input className="input pl-9" placeholder="Cari…" aria-label="Cari rekomendasi" value={q} onChange={(e) => setQ(e.target.value)} />
         </div>
-        <div className="flex gap-1" role="group" aria-label="Filter prioritas">
-          {[0, 1, 2, 3].map((p) => <button key={p} className={`btn btn-sm ${pr === p ? 'btn-primary' : ''}`} aria-pressed={pr === p} onClick={() => setPr(p)}>{p ? `Prioritas ${p}` : 'Semua'}</button>)}
+        <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter prioritas">
+          {[0, 1, 2, 3].map((p) => <button key={p} className={`rounded-full border px-3 py-1 text-sm font-semibold transition-colors duration-150 ${pr === p ? 'border-primary bg-primary text-on-primary' : 'border-line bg-card hover:bg-muted'}`} aria-pressed={pr === p} onClick={() => setPr(p)}>{p ? `Prioritas ${p}` : 'Semua'}</button>)}
         </div>
       </div>
       <div className="card overflow-x-auto">
-        <table className="w-full">
+        <table className="tbl">
           <thead><tr><th className="th">Prioritas</th><th className="th">Kategori</th><th className="th">Jenis</th><th className="th">Catatan</th></tr></thead>
           <tbody className="divide-y divide-line">
             {rows.slice(0, 400).map((r) => (
@@ -41,7 +41,7 @@ export default function Rekomendasi() {
                 <td className="td">{r.jenis === 'J' ? 'Jasa' : 'Barang'}</td>
                 <td className="td text-xs">
                   {r.flags.map((f) => <div key={f} className="text-warn">⚠ {f}</div>)}
-                  {!r.punya_template && <span className="text-muted-fg">Belum ada template — unduh di INAPROC</span>}
+                  {!r.punya_template && <Chip tone="mute" icon={false}>Perlu template</Chip>}
                 </td>
               </tr>
             ))}

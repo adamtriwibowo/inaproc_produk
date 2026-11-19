@@ -33,13 +33,13 @@ export default function SuperAdmin() {
       <section className="card mb-4">
         <h2 className="border-b border-line px-3 py-2 font-semibold">Ringkasan lintas perusahaan</h2>
         {ov.loading ? <Loading /> : (
-          <table className="w-full">
+          <table className="tbl">
             <thead><tr><th className="th">Perusahaan</th><th className="th text-right">Bisa</th><th className="th text-right">Tidak Bisa</th><th className="th">Batch</th><th className="th">Status</th></tr></thead>
             <tbody className="divide-y divide-line">
               {ov.data.map((o) => (
                 <tr key={o.id}>
                   <td className="td font-medium"><Link className="text-primary hover:underline" to={`/c/${o.id}`}>{o.name}</Link></td>
-                  <td className="td text-right font-mono">{o.kategori_bisa}</td><td className="td text-right font-mono">{o.kategori_tidak_bisa}</td>
+                  <td className="td text-right num">{o.kategori_bisa}</td><td className="td text-right num">{o.kategori_tidak_bisa}</td>
                   <td className="td text-xs">{Object.entries(o.batch).map(([k, v]) => `${k}: ${v}`).join(' · ') || '—'}</td>
                   <td className="td"><Chip tone={o.active ? 'ok' : 'mute'}>{o.active ? 'Aktif' : 'Nonaktif'}</Chip></td>
                 </tr>

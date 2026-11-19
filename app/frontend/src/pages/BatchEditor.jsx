@@ -192,7 +192,7 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
     <>
       <div className="mb-3 flex flex-wrap items-center gap-3">
         <Link to={`/c/${cid}/batch`} className="btn btn-sm"><ArrowLeft className="h-4 w-4" /> Batch</Link>
-        <h1 className="text-lg font-semibold">{batch.name}</h1>
+        <h1 className="text-2xl font-bold tracking-tight">{batch.name}</h1>
         <Chip tone={statusTone(batch.status)}>{batch.status}</Chip>
         {batch.is_test && <Chip tone="warn"><FlaskConical className="h-3 w-3" /> Uji coba</Chip>}
         <span className="text-xs text-muted-fg">Preset PDN: {batch.pdn_preset}</span>
@@ -217,10 +217,10 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
       )}
       <ErrorBox error={err || store.error} />
 
-      <div className="mb-3 flex gap-1 border-b border-line" role="tablist">
+      <div className="mb-4 flex gap-1 border-b border-line" role="tablist">
         {TABS.map(([k, l]) => (
           <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)}
-            className={`border-b-2 px-3 py-2 text-sm font-medium transition-colors duration-200 ${tab === k ? 'border-primary text-primary' : 'border-transparent text-muted-fg hover:text-fg'}`}>
+            className={`border-b-2 px-4 py-2.5 text-sm font-semibold transition-colors duration-200 ${tab === k ? 'border-primary text-primary' : 'border-transparent text-muted-fg hover:text-fg'}`}>
             {l}{k === 'grid' && nErr > 0 && <span className="chip ml-1.5 bg-bad-bg text-bad">{nErr}</span>}
           </button>
         ))}
@@ -252,10 +252,15 @@ function Editor({ cid, role, init, schemas, reloadAll }) {
               {nErr > 0 ? <><AlertTriangle className="h-4 w-4 text-bad" /> {nErr} error</> : 'Tidak ada error'} · {summary.warn} peringatan
             </button>
           </div>
-          <p className="mb-2 text-xs text-muted-fg">
-            Tempel dari Excel di sel mana pun (Ctrl+V). <kbd className="rounded border border-line px-1">Ctrl+D</kbd> isi dari sel di atas · tombol ↓ di judul kolom mengisi seluruh kolom · harga & stok bilangan bulat tanpa pemisah.
-            Tidak tersedia di unggah massal: varian, harga grosir, layanan tambahan, merek, TKDN, SNI — tindak lanjut manual di INAPROC.
-          </p>
+          <details className="mb-3 text-sm text-muted-fg">
+            <summary className="w-fit cursor-pointer font-semibold text-primary">Tips mengisi grid</summary>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              <li>Tempel dari Excel di sel mana pun (Ctrl+V). Baris baru dibuat otomatis.</li>
+              <li><kbd className="rounded border border-line bg-card px-1">Ctrl+D</kbd> menyalin dari sel di atas. Tombol panah di judul kolom mengisi seluruh kolom.</li>
+              <li>Harga dan stok berupa bilangan bulat tanpa pemisah (85000, bukan 85.000).</li>
+              <li>Tidak tersedia di unggah massal: varian, harga grosir, layanan tambahan, merek, TKDN, SNI. Isi manual di INAPROC setelah produk masuk.</li>
+            </ul>
+          </details>
           <div className={`grid gap-3 ${showErrors && errorItems.length ? 'xl:grid-cols-[1fr_320px]' : ''}`}>
             <div className="min-w-0">
               {schemasOfJenis.length === 0 ? (

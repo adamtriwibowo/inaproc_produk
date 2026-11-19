@@ -43,10 +43,10 @@ export default function ReviewTab({ cid, role, batch, rows, photos, summary, onC
           <Chip tone={summary.kbki_tebakan ? 'warn' : 'ok'}>{summary.kbki_tebakan} KBKI tebakan</Chip>
           <Chip tone={summary.foto_tanpa_link ? 'warn' : 'ok'}>{summary.foto_tanpa_link} foto belum punya link</Chip>
         </div>
-        <table className="w-full">
+        <table className="tbl">
           <thead><tr><th className="th">Kategori</th><th className="th text-right">Produk</th><th className="th text-right">Harga termurah</th><th className="th text-right">Harga termahal</th></tr></thead>
           <tbody className="divide-y divide-line">
-            {cats.map(([k, v]) => <tr key={k}><td className="td">{k}</td><td className="td text-right font-mono">{v.jumlah}</td><td className="td text-right font-mono">{rp(v.harga_min)}</td><td className="td text-right font-mono">{rp(v.harga_max)}</td></tr>)}
+            {cats.map(([k, v]) => <tr key={k}><td className="td">{k}</td><td className="td text-right num">{v.jumlah}</td><td className="td text-right num">{rp(v.harga_min)}</td><td className="td text-right num">{rp(v.harga_max)}</td></tr>)}
           </tbody>
         </table>
       </section>

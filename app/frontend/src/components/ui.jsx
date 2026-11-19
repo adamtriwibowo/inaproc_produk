@@ -3,10 +3,19 @@ import { AlertTriangle, CheckCircle2, Info, Loader2, X, XCircle } from 'lucide-r
 
 export const Spinner = ({ className = '' }) => <Loader2 className={`h-4 w-4 animate-spin ${className}`} aria-hidden />
 
+export function Skeleton({ className = '' }) {
+  return <div className={`animate-pulse rounded-lg bg-muted ${className}`} aria-hidden />
+}
+
 export function Loading({ text = 'Memuat…' }) {
   return (
-    <div className="flex items-center gap-2 p-6 text-sm text-muted-fg" role="status">
-      <Spinner /> {text}
+    <div role="status" aria-label={text} className="space-y-4">
+      <Skeleton className="h-8 w-56" />
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        {[0, 1, 2, 3].map((i) => <Skeleton key={i} className="h-24" />)}
+      </div>
+      <Skeleton className="h-64" />
+      <span className="sr-only">{text}</span>
     </div>
   )
 }
@@ -51,12 +60,12 @@ export function statusTone(s) {
 
 export function PageHeader({ title, subtitle, actions }) {
   return (
-    <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
-      <div>
-        <h1 className="text-xl font-semibold">{title}</h1>
-        {subtitle && <p className="mt-0.5 text-sm text-muted-fg">{subtitle}</p>}
+    <div className="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+      <div className="min-w-0 max-w-2xl">
+        <h1 className="text-[26px] font-bold leading-tight tracking-tight">{title}</h1>
+        {subtitle && <p className="mt-1 text-[14px] leading-relaxed text-muted-fg">{subtitle}</p>}
       </div>
-      <div className="flex flex-wrap gap-2">{actions}</div>
+      {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
     </div>
   )
 }
@@ -112,17 +121,28 @@ export function ToastProvider({ children }) {
   )
 }
 
-export function Empty({ children }) {
-  return <div className="p-8 text-center text-sm text-muted-fg">{children}</div>
+export function Empty({ children, icon: Icon, title, action }) {
+  return (
+    <div className="flex flex-col items-center gap-2 px-6 py-12 text-center">
+      {Icon && <span className="flex h-12 w-12 items-center justify-center rounded-full bg-muted text-muted-fg"><Icon className="h-6 w-6" aria-hidden /></span>}
+      {title && <div className="text-base font-semibold">{title}</div>}
+      <div className="max-w-md text-sm text-muted-fg">{children}</div>
+      {action && <div className="mt-2">{action}</div>}
+    </div>
+  )
 }
 
-export function Stat({ label, value, tone = 'mute', hint }) {
-  const c = { ok: 'text-ok', bad: 'text-bad', warn: 'text-warn' }[tone] || ''
+export function Stat({ label, value, tone = 'mute', hint, icon: Icon }) {
+  const c = { ok: 'text-ok', bad: 'text-bad', warn: 'text-warn' }[tone] || 'text-fg'
+  const bar = { ok: 'bg-ok', bad: 'bg-bad', warn: 'bg-warn' }[tone] || 'bg-primary'
   return (
-    <div className="card p-3">
-      <div className="text-xs font-medium text-muted-fg">{label}</div>
-      <div className={`mt-1 font-mono text-2xl font-semibold ${c}`}>{value}</div>
-      {hint && <div className="mt-0.5 text-xs text-muted-fg">{hint}</div>}
+    <div className="card relative overflow-hidden p-4 pl-5">
+      <span className={`absolute inset-y-0 left-0 w-1 ${bar}`} aria-hidden />
+      <div className="flex items-center justify-between gap-2 text-[13px] font-medium text-muted-fg">
+        {label}{Icon && <Icon className="h-4 w-4" aria-hidden />}
+      </div>
+      <div className={`num mt-1 text-[30px] font-bold leading-none tracking-tight ${c}`}>{value}</div>
+      {hint && <div className="mt-1.5 text-xs text-muted-fg">{hint}</div>}
     </div>
   )
 }

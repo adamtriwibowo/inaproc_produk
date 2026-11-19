@@ -34,7 +34,7 @@ export default function Kbli() {
   return (
     <>
       <PageHeader
-        title="KBLI"
+        title="KBLI perusahaan"
         subtitle="KBLI perusahaan dan KBLI yang paling banyak membuka kategori “Tidak Bisa”."
         actions={admin && (
           <>
@@ -47,14 +47,14 @@ export default function Kbli() {
       <ErrorBox error={err} />
       <div className="grid gap-4 lg:grid-cols-2">
         <section className="card">
-          <h2 className="border-b border-line px-3 py-2 font-semibold">KBLI perusahaan ({data.kbli.length})</h2>
-          <table className="w-full">
+          <h2 className="border-b border-line px-4 py-3 text-base font-bold">KBLI perusahaan ({data.kbli.length})</h2>
+          <table className="tbl">
             <thead><tr><th className="th">Kode</th><th className="th">Versi</th><th className="th">Nama</th><th className="th text-right">Kategori dibuka</th>{admin && <th className="th"><span className="sr-only">Aksi</span></th>}</tr></thead>
             <tbody className="divide-y divide-line">
               {data.kbli.map((k) => (
                 <tr key={k.id}>
                   <td className="td font-mono">{k.code}</td><td className="td">{k.version}</td><td className="td">{k.name}</td>
-                  <td className="td text-right font-mono">{k.kategori_dibuka === 0 ? <Chip tone="warn">0</Chip> : k.kategori_dibuka}</td>
+                  <td className="td text-right num">{k.kategori_dibuka === 0 ? <Chip tone="warn">0</Chip> : k.kategori_dibuka}</td>
                   {admin && <td className="td"><button className="btn btn-sm" aria-label={`Hapus KBLI ${k.code}`} onClick={() => del(k)}><Trash2 className="h-3.5 w-3.5" /></button></td>}
                 </tr>
               ))}
@@ -71,13 +71,13 @@ export default function Kbli() {
         </section>
 
         <section className="card">
-          <h2 className="border-b border-line px-3 py-2 font-semibold">KBLI terbanyak membuka kategori “Tidak Bisa”</h2>
+          <h2 className="border-b border-line px-4 py-3 text-base font-bold">KBLI yang paling banyak membuka kategori terkunci</h2>
           <p className="px-3 pt-2 text-xs text-muted-fg">Menambah KBLI ini (bila relevan dengan usaha Anda di OSS) akan membuka kategori terbanyak.</p>
-          <table className="w-full">
+          <table className="tbl">
             <thead><tr><th className="th">Kode</th><th className="th">Versi</th><th className="th">Nama</th><th className="th text-right">Kategori</th></tr></thead>
             <tbody className="divide-y divide-line">
               {data.ranking_tidak_bisa.map((k) => (
-                <tr key={k.code + k.version}><td className="td font-mono">{k.code}</td><td className="td">{k.version}</td><td className="td">{k.name}</td><td className="td text-right font-mono">{k.kategori}</td></tr>
+                <tr key={k.code + k.version}><td className="td font-mono">{k.code}</td><td className="td">{k.version}</td><td className="td">{k.name}</td><td className="td text-right num">{k.kategori}</td></tr>
               ))}
             </tbody>
           </table>

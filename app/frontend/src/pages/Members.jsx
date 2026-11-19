@@ -29,7 +29,7 @@ export default function Members() {
       <PageHeader title="Anggota perusahaan" subtitle="Peran berlaku hanya di perusahaan ini. Pengguna baru diundang oleh Super Admin." />
       <ErrorBox error={err} />
       <div className="card overflow-x-auto">
-        <table className="w-full">
+        <table className="tbl">
           <thead><tr><th className="th">Email</th><th className="th">Nama</th><th className="th">Peran</th><th className="th"><span className="sr-only">Aksi</span></th></tr></thead>
           <tbody className="divide-y divide-line">
             {data.map((m) => (

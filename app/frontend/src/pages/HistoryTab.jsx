@@ -55,7 +55,7 @@ export default function HistoryTab({ cid, bid, batch, rows, onChanged }) {
 
       <div className="card overflow-x-auto">
         {loading ? <Loading /> : (
-          <table className="w-full">
+          <table className="tbl">
             <thead><tr><th className="th">Waktu</th><th className="th">File</th><th className="th">Hasil</th><th className="th">Pesan</th></tr></thead>
             <tbody className="divide-y divide-line">
               {data.map((h) => (

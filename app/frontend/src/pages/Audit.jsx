@@ -9,9 +9,9 @@ export default function Audit() {
   if (error) return <ErrorBox error={error} />
   return (
     <>
-      <PageHeader title="Audit Log" subtitle="Siapa membuat, mengubah, menyetujui, dan mengekspor apa — khusus perusahaan ini." />
+      <PageHeader title="Jejak aktivitas" subtitle="Siapa membuat, mengubah, menyetujui, dan mengekspor apa — khusus perusahaan ini." />
       <div className="card overflow-x-auto">
-        <table className="w-full">
+        <table className="tbl">
           <thead><tr><th className="th">Waktu</th><th className="th">Pengguna</th><th className="th">Aksi</th><th className="th">Detail</th></tr></thead>
           <tbody className="divide-y divide-line">
             {data.map((a) => (

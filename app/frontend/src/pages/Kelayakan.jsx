@@ -48,25 +48,25 @@ export default function Kelayakan() {
   return (
     <>
       <PageHeader
-        title="Kelayakan Kategori"
+        title="Kelayakan kategori"
         subtitle="Kategori Bisa ⇔ ada KBLI perusahaan (kode dan versi) di daftar KBLI kategori."
         actions={<button className="btn" onClick={() => download(`${C(cid)}/kelayakan/export.xlsx`, 'rekap_kelayakan_kategori.xlsx')}><Download className="h-4 w-4" /> Ekspor Excel</button>}
       />
-      <div className="mb-4 grid grid-cols-2 gap-3 md:grid-cols-4">
-        <Stat label="Kategori produk Bisa" value={t.kategori_bisa} tone="ok" />
-        <Stat label="Kategori produk Tidak Bisa" value={t.kategori_tidak_bisa} tone="bad" />
+      <div className="mb-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <Stat label="Kategori produk bisa" value={t.kategori_bisa} tone="ok" />
+        <Stat label="Kategori produk tidak bisa" value={t.kategori_tidak_bisa} tone="bad" />
         <Stat label="Subkategori" value={`${t.sub_bisa} / ${t.sub_sebagian} / ${t.sub_tidak}`} hint="bisa / sebagian / tidak bisa" />
         <Stat label="Kategori utama" value={`${t.utama_bisa} / ${t.utama_sebagian} / ${t.utama_tidak}`} hint="bisa / sebagian / tidak bisa" />
       </div>
 
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <div className="relative w-full max-w-sm">
-          <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-fg" aria-hidden />
-          <input className="input pl-8" placeholder="Cari kategori…" aria-label="Cari kategori" value={q} onChange={(e) => setQ(e.target.value)} />
+          <Search className="pointer-events-none absolute left-3 top-[11px] h-4 w-4 text-muted-fg" aria-hidden />
+          <input className="input pl-9" placeholder="Cari kategori…" aria-label="Cari kategori" value={q} onChange={(e) => setQ(e.target.value)} />
         </div>
-        <div className="flex gap-1" role="group" aria-label="Filter status">
+        <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter status">
           {FILTERS.map((f) => (
-            <button key={f} className={`btn btn-sm ${filter === f ? 'btn-primary' : ''}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>{f}</button>
+            <button key={f} className={`rounded-full border px-3 py-1 text-sm font-semibold transition-colors duration-150 ${filter === f ? 'border-primary bg-primary text-on-primary' : 'border-line bg-card hover:bg-muted'}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>{f}</button>
           ))}
         </div>
       </div>
@@ -78,10 +78,10 @@ export default function Kelayakan() {
             const o1 = forceOpen || open[n1.name]
             return (
               <div key={n1.name}>
-                <button className="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-muted" onClick={() => setOpen({ ...open, [n1.name]: !open[n1.name] })} aria-expanded={!!o1}>
+                <button className="flex w-full items-center gap-2 px-4 py-3 text-left transition-colors duration-150 hover:bg-muted" onClick={() => setOpen({ ...open, [n1.name]: !open[n1.name] })} aria-expanded={!!o1}>
                   {o1 ? <ChevronDown className="h-4 w-4" aria-hidden /> : <ChevronRight className="h-4 w-4" aria-hidden />}
-                  <span className="flex-1 font-semibold">{n1.name}</span>
-                  <span className="font-mono text-xs text-muted-fg">{n1.ok}/{n1.ok + n1.no}</span>
+                  <span className="flex-1 text-[15px] font-bold">{n1.name}</span>
+                  <span className="num text-xs text-muted-fg">{n1.ok}/{n1.ok + n1.no}</span>
                   <Chip tone={statusTone(n1.status)}>{n1.status}</Chip>
                 </button>
                 {o1 && n1.subs.map((n2) => {
@@ -89,15 +89,15 @@ export default function Kelayakan() {
                   const o2 = forceOpen || open[k2]
                   return (
                     <div key={k2} className="border-t border-line/60 bg-bg/50">
-                      <button className="flex w-full items-center gap-2 py-1.5 pl-8 pr-3 text-left hover:bg-muted" onClick={() => setOpen({ ...open, [k2]: !open[k2] })} aria-expanded={!!o2}>
+                      <button className="flex w-full items-center gap-2 py-2 pl-10 pr-4 text-left transition-colors duration-150 hover:bg-muted" onClick={() => setOpen({ ...open, [k2]: !open[k2] })} aria-expanded={!!o2}>
                         {o2 ? <ChevronDown className="h-3.5 w-3.5" aria-hidden /> : <ChevronRight className="h-3.5 w-3.5" aria-hidden />}
                         <span className="flex-1 text-sm font-medium">{n2.name}</span>
-                        <span className="font-mono text-xs text-muted-fg">{n2.ok}/{n2.ok + n2.no}</span>
+                        <span className="num text-xs text-muted-fg">{n2.ok}/{n2.ok + n2.no}</span>
                         <Chip tone={statusTone(n2.status)}>{n2.status}</Chip>
                       </button>
                       {o2 && n2.leaves.map((c) => (
                         <button key={c.id} onClick={() => pick(c)} aria-pressed={sel === c.id}
-                          className={`flex w-full items-center gap-2 py-1.5 pl-14 pr-3 text-left text-sm hover:bg-muted ${sel === c.id ? 'bg-primary/10' : ''}`}>
+                          className={`flex w-full items-center gap-2 py-2 pl-16 pr-4 text-left text-sm transition-colors duration-150 hover:bg-muted ${sel === c.id ? 'bg-primary/10' : ''}`}>
                           <span className="flex-1">{c.name}</span>
                           {c.existing > 0 && <span className="font-mono text-xs text-muted-fg">{c.existing} produk</span>}
                           {c.ok && c.punya_template && <Chip tone="info" icon={false}>Template</Chip>}
@@ -112,7 +112,7 @@ export default function Kelayakan() {
           })}
         </div>
 
-        <aside className="card h-fit p-4 lg:sticky lg:top-28" aria-live="polite">
+        <aside className="card h-fit p-4 lg:sticky lg:top-6" aria-live="polite">
           {!sel && <p className="text-sm text-muted-fg">Pilih kategori produk untuk melihat KBLI yang diterima.</p>}
           {sel && !detail && <Loading />}
           {detail?.error && <ErrorBox error={detail.error} />}
@@ -130,13 +130,13 @@ export default function Kelayakan() {
               {detail.catatan && <p className="rounded-md bg-warn-bg p-2 text-xs text-warn">{detail.catatan}</p>}
               {detail.flags.map((f) => <p key={f} className="rounded-md bg-warn-bg p-2 text-xs text-warn">{f}</p>)}
               <div>
-                <h3 className="mb-1 text-xs font-semibold uppercase text-muted-fg">KBLI perusahaan yang cocok</h3>
+                <h3 className="mb-1 text-[13px] font-semibold text-muted-fg">KBLI perusahaan yang cocok</h3>
                 {detail.kbli_cocok.length === 0 ? <p className="text-sm text-bad">Tidak ada KBLI perusahaan yang cocok.</p> : (
                   <ul className="text-sm">{detail.kbli_cocok.map((k) => <li key={k.code + k.version}><span className="font-mono">{k.code}</span> ({k.version}) {k.name}</li>)}</ul>
                 )}
               </div>
               <div>
-                <h3 className="mb-1 text-xs font-semibold uppercase text-muted-fg">KBLI yang diterima kategori ({detail.kbli.length})</h3>
+                <h3 className="mb-1 text-[13px] font-semibold text-muted-fg">KBLI yang diterima kategori ({detail.kbli.length})</h3>
                 <ul className="max-h-64 overflow-auto text-xs">
                   {detail.kbli.map((k) => (
                     <li key={k.code + k.version} className={`py-0.5 ${k.milik ? 'font-semibold text-ok' : ''}`}>
