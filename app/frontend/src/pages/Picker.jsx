@@ -17,22 +17,22 @@ export default function Picker({ auto }) {
 
   return (
     <div className="min-h-screen">
-      <header className="flex items-center justify-between bg-side px-6 py-4 text-white">
+      <header className="relative flex items-center justify-between overflow-hidden bg-gradient-to-br from-primary to-primary-dark px-6 py-5 text-white">
         <div className="flex items-center gap-2.5 font-bold"><Boxes className="h-5 w-5" aria-hidden /> Unggah Massal</div>
         <div className="flex items-center gap-2">
           {me.user.is_super && <button className="btn btn-sm border-white/20 bg-white/10 text-white hover:bg-white/20" onClick={() => nav('/admin')}><ShieldCheck className="h-4 w-4" /> Super Admin</button>}
           <button className="btn btn-sm border-white/20 bg-white/10 text-white hover:bg-white/20" onClick={logout}><LogOut className="h-4 w-4" /> Keluar</button>
         </div>
       </header>
-      <main className="mx-auto max-w-2xl px-6 py-10">
-        <h1 className="text-[28px] font-bold tracking-tight">Pilih perusahaan</h1>
+      <main className="mx-auto max-w-2xl px-5 py-10 sm:px-6 sm:py-14">
+        <h1 className="text-[32px] font-extrabold tracking-tight">Pilih perusahaan</h1>
         <p className="mb-6 mt-1 text-muted-fg">Semua data, template, dan batch dipisah per perusahaan. Anda bisa berpindah kapan saja dari menu kiri.</p>
         {list.length === 0 && <div className="card"><Empty title="Belum ada akses">Anda belum terdaftar di perusahaan mana pun. Minta Super Admin menambahkan akses.</Empty></div>}
         <ul className="space-y-3">
           {list.map((c) => (
             <li key={c.id}>
-              <button className="card group flex w-full items-center gap-4 p-4 text-left transition-[border-color,box-shadow] duration-150 hover:border-primary hover:shadow-md" onClick={() => nav(`/c/${c.id}`)}>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-side text-lg font-bold text-accent" aria-hidden>{c.name[0]}</span>
+              <button className="card group flex w-full items-center gap-4 p-5 text-left transition-[border-color,box-shadow] duration-150 hover:border-primary hover:shadow-md" onClick={() => nav(`/c/${c.id}`)}>
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-dark text-lg font-extrabold text-white" aria-hidden>{c.name[0]}</span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-base font-bold">{c.name}</span>
                   <span className="block truncate font-mono text-xs text-muted-fg">{c.institution_id}</span>

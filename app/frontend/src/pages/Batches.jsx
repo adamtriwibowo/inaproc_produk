@@ -54,7 +54,7 @@ export default function Batches() {
           </Empty>
         ) : (
           <table className="tbl">
-            <thead><tr><th className="th">Batch</th><th className="th">Status</th><th className="th text-right">Produk</th><th className="th">Dibuat oleh</th><th className="th">Diperbarui</th></tr></thead>
+            <thead><tr><th className="th">Batch</th><th className="th">Status</th><th className="th text-right">Produk</th><th className="th hidden md:table-cell">Dibuat oleh</th><th className="th hidden sm:table-cell">Diperbarui</th></tr></thead>
             <tbody>
               {rows.map((b) => (
                 <tr key={b.id}>
@@ -64,8 +64,8 @@ export default function Batches() {
                   </td>
                   <td className="td"><Chip tone={statusTone(b.status)}>{b.status}</Chip></td>
                   <td className="td text-right num">{b.n_produk}</td>
-                  <td className="td text-muted-fg">{b.dibuat_oleh}</td>
-                  <td className="td whitespace-nowrap text-muted-fg">{new Date(b.updated_at).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })}</td>
+                  <td className="td hidden text-muted-fg md:table-cell">{b.dibuat_oleh}</td>
+                  <td className="td hidden whitespace-nowrap text-muted-fg sm:table-cell">{new Date(b.updated_at).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })}</td>
                 </tr>
               ))}
             </tbody>

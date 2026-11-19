@@ -36,7 +36,7 @@ export function ErrorBox({ error }) {
 
 const TONES = {
   ok: 'bg-ok-bg text-ok', warn: 'bg-warn-bg text-warn', bad: 'bg-bad-bg text-bad',
-  info: 'bg-primary/10 text-primary', mute: 'bg-muted text-muted-fg',
+  info: 'bg-info-bg text-info', mute: 'bg-muted text-muted-fg',
 }
 const TONE_ICON = { ok: CheckCircle2, warn: AlertTriangle, bad: XCircle, info: Info }
 
@@ -60,10 +60,10 @@ export function statusTone(s) {
 
 export function PageHeader({ title, subtitle, actions }) {
   return (
-    <div className="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+    <div className="mb-7 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 lg:mb-9">
       <div className="min-w-0 max-w-2xl">
-        <h1 className="text-[26px] font-bold leading-tight tracking-tight">{title}</h1>
-        {subtitle && <p className="mt-1 text-[14px] leading-relaxed text-muted-fg">{subtitle}</p>}
+        <h1 className="text-[26px] font-extrabold leading-tight tracking-tight lg:text-[32px]">{title}</h1>
+        {subtitle && <p className="mt-1.5 text-[15px] leading-relaxed text-muted-fg">{subtitle}</p>}
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
     </div>
@@ -83,7 +83,7 @@ export function Modal({ title, onClose, children, wide }) {
     <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/40 p-4" onMouseDown={onClose}>
       <div
         ref={ref} tabIndex={-1} role="dialog" aria-modal="true" aria-label={title}
-        className={`card mt-10 w-full ${wide ? 'max-w-3xl' : 'max-w-lg'} p-5 shadow-lg`}
+        className={`card mt-6 w-full sm:mt-12 ${wide ? 'max-w-3xl' : 'max-w-lg'} p-6 shadow-2xl`}
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="mb-3 flex items-center justify-between">
@@ -134,14 +134,12 @@ export function Empty({ children, icon: Icon, title, action }) {
 
 export function Stat({ label, value, tone = 'mute', hint, icon: Icon }) {
   const c = { ok: 'text-ok', bad: 'text-bad', warn: 'text-warn' }[tone] || 'text-fg'
-  const bar = { ok: 'bg-ok', bad: 'bg-bad', warn: 'bg-warn' }[tone] || 'bg-primary'
   return (
-    <div className="card relative overflow-hidden p-4 pl-5">
-      <span className={`absolute inset-y-0 left-0 w-1 ${bar}`} aria-hidden />
-      <div className="flex items-center justify-between gap-2 text-[13px] font-medium text-muted-fg">
+    <div className="card p-5">
+      <div className="flex items-center justify-between gap-2 text-sm font-medium text-muted-fg">
         {label}{Icon && <Icon className="h-4 w-4" aria-hidden />}
       </div>
-      <div className={`num mt-1 text-[30px] font-bold leading-none tracking-tight ${c}`}>{value}</div>
+      <div className={`num mt-2 whitespace-nowrap text-2xl font-extrabold leading-none tracking-tight sm:text-[32px] ${c}`}>{value}</div>
       {hint && <div className="mt-1.5 text-xs text-muted-fg">{hint}</div>}
     </div>
   )

@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { ChevronDown, ChevronRight, Download, Search } from 'lucide-react'
 import { api, C, download } from '../api.js'
 import { useCompany } from '../company.js'
@@ -9,7 +10,8 @@ const FILTERS = ['Semua', 'Bisa', 'Sebagian', 'Tidak Bisa']
 export default function Kelayakan() {
   const { cid } = useCompany()
   const { data, error, loading } = useLoad(() => api(`${C(cid)}/kelayakan/tree`), [cid])
-  const [q, setQ] = useState('')
+  const [params] = useSearchParams()
+  const [q, setQ] = useState(params.get('q') || '')
   const [filter, setFilter] = useState('Semua')
   const [open, setOpen] = useState({})
   const [sel, setSel] = useState(null)

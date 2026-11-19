@@ -3,22 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --primary: 18 78 82;       /* #124E52 teal tinta */
+  --primary: 185 28 59;      /* #B91C3B merah INAPROC (sama dengan header Excel kit) */
+  --primary-dark: 127 18 48; /* #7F1230 */
   --on-primary: 255 255 255;
-  --accent: 242 183 5;       /* #F2B705 kuning label kargo: hanya penanda/aksen, bukan teks */
-  --side: 14 52 56;          /* #0E3438 sidebar */
-  --bg: 242 245 244;         /* #F2F5F4 kertas dingin */
+  --accent: 245 158 11;      /* amber */
+  --side: 255 255 255;
+  --bg: 247 246 247;         /* #F7F6F7 */
   --card: 255 255 255;
-  --fg: 15 31 34;
-  --muted: 228 235 234;
-  --muted-fg: 65 84 86;
-  --line: 207 218 217;
+  --fg: 24 20 24;
+  --muted: 240 238 240;
+  --muted-fg: 99 90 98;
+  --line: 229 225 229;
   --ok: 21 128 61;   --ok-bg: 220 252 231;
   --warn: 146 84 6;  --warn-bg: 254 243 199;
-  --bad: 185 28 28;  --bad-bg: 254 226 226;
+  --bad: 159 18 57;  --bad-bg: 255 228 230;
+  --info: 3 105 161; --info-bg: 224 242 254;
 }
 
-html { font-size: 15px; scrollbar-gutter: stable; }
+:root.dark {
+  --primary: 232 52 86;      /* merah lebih terang agar kontras di latar gelap */
+  --primary-dark: 159 18 57;
+  --bg: 15 13 15;
+  --card: 24 21 24;
+  --fg: 245 242 245;
+  --muted: 38 34 38;
+  --muted-fg: 168 158 166;
+  --line: 48 43 48;
+  --ok: 134 239 172;  --ok-bg: 20 58 34;
+  --warn: 252 211 77; --warn-bg: 66 48 8;
+  --bad: 253 164 175; --bad-bg: 76 19 34;
+  --info: 125 211 252; --info-bg: 12 45 70;
+  color-scheme: dark;
+}
+
+html { font-size: 16px; scrollbar-gutter: stable; }
 body { @apply bg-bg text-fg font-sans antialiased; margin: 0; line-height: 1.5; }
 h1, h2, h3 { text-wrap: balance; }
 button, a, select, summary, label[for], [role='button'] { cursor: pointer; }
@@ -28,18 +46,18 @@ button:disabled { cursor: not-allowed; }
 :focus-visible { outline: 2px solid rgb(var(--primary)); outline-offset: 2px; border-radius: 4px; }
 
 @layer components {
-  .btn { @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-line bg-card px-3.5 min-h-[38px] text-sm font-semibold text-fg shadow-sm transition-[background-color,box-shadow,transform] duration-150 hover:bg-muted active:translate-y-px disabled:opacity-50 disabled:shadow-none; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-card px-4 min-h-[44px] text-sm font-medium text-fg shadow-sm transition-[background-color,box-shadow,transform] duration-150 hover:bg-muted active:translate-y-px disabled:opacity-50 disabled:shadow-none lg:min-h-[40px]; }
   .btn-primary { @apply border-primary bg-primary text-on-primary hover:bg-primary/90; }
   .btn-danger { @apply border-bad bg-bad text-white hover:bg-bad/90; }
-  .btn-sm { @apply min-h-[32px] px-2.5 text-xs; }
-  .input { @apply w-full rounded-lg border border-line bg-card px-3 min-h-[38px] text-sm placeholder:text-muted-fg/70 transition-shadow duration-150 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25; }
-  .label { @apply mb-1.5 block text-[13px] font-semibold text-fg/80; }
-  .card { @apply rounded-xl border border-line bg-card shadow-[0_1px_2px_rgb(15_31_34/0.04)]; }
-  .chip { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold; }
-  .th { @apply sticky top-0 whitespace-nowrap border-b border-line bg-muted/60 px-4 py-2.5 text-left text-[13px] font-semibold text-muted-fg; }
-  .td { @apply px-4 py-3 text-sm align-middle; }
+  .btn-sm { @apply min-h-[36px] px-3 text-[13px] lg:min-h-[34px]; }
+  .input { @apply w-full rounded-lg border border-line bg-card px-3.5 min-h-[44px] text-base placeholder:text-muted-fg/70 transition-shadow duration-150 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 lg:min-h-[40px] lg:text-sm; }
+  .label { @apply mb-1.5 block text-sm font-semibold text-fg/80; }
+  .card { @apply rounded-xl border border-line bg-card text-fg shadow-sm; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold; }
+  .th { @apply sticky top-0 whitespace-nowrap border-b border-line bg-card px-5 py-3 text-left text-[13px] font-medium text-muted-fg; }
+  .td { @apply px-5 py-3.5 text-sm align-middle; }
   .tbl { @apply w-full border-separate border-spacing-0; }
-  .tbl tbody tr { @apply transition-colors duration-100 hover:bg-primary/[0.04]; }
+  .tbl tbody tr { @apply transition-colors duration-100 hover:bg-primary/[0.035]; }
   .tbl tbody td { @apply border-b border-line/70; }
   .tbl tbody tr:last-child td { @apply border-b-0; }
   .num { font-variant-numeric: tabular-nums; }

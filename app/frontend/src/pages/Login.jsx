@@ -23,30 +23,32 @@ export default function Login() {
   }
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-[minmax(0,1fr)_480px]">
-      <section className="hidden flex-col justify-between bg-side p-12 text-white lg:flex">
-        <div className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-white/10"><Boxes className="h-5 w-5" aria-hidden /></span>
+    <div className="grid min-h-screen lg:grid-cols-[minmax(0,1fr)_520px]">
+      <section className="relative hidden flex-col justify-between overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-dark p-14 text-white lg:flex">
+        <span className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-white/10" aria-hidden />
+        <span className="pointer-events-none absolute -right-8 top-24 h-40 w-40 rounded-full bg-white/10" aria-hidden />
+        <div className="relative flex items-center gap-2.5">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/25"><Boxes className="h-5 w-5" aria-hidden /></span>
           <span className="text-lg font-bold tracking-tight">Unggah Massal</span>
         </div>
-        <div className="max-w-xl">
-          <h1 className="text-[40px] font-bold leading-[1.1] tracking-tight">Dari daftar produk ke zip siap unggah, tanpa salah kolom.</h1>
+        <div className="relative max-w-xl">
+          <h1 className="text-[44px] font-extrabold leading-[1.08] tracking-tight">Dari daftar produk ke zip siap unggah, tanpa salah kolom.</h1>
           <ul className="mt-8 space-y-4">
             {POINTS.map(([I, t]) => (
               <li key={t} className="flex items-start gap-3 text-[15px] text-white/80">
-                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-accent text-side"><I className="h-4 w-4" aria-hidden /></span>
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-primary"><I className="h-4 w-4" aria-hidden /></span>
                 {t}
               </li>
             ))}
           </ul>
         </div>
-        <p className="text-sm text-white/50">Aplikasi ini tidak login ke INAPROC dan tidak mengunggah otomatis.</p>
+        <p className="relative text-sm text-white/70">Aplikasi ini tidak login ke INAPROC dan tidak mengunggah otomatis.</p>
       </section>
 
       <main className="flex items-center justify-center p-6">
-        <form onSubmit={submit} className="w-full max-w-sm space-y-4">
+        <form onSubmit={submit} className="w-full max-w-sm space-y-5">
           <div className="flex items-center gap-2 text-primary lg:hidden"><Boxes className="h-6 w-6" aria-hidden /><span className="text-lg font-bold">Unggah Massal</span></div>
-          <h2 className="text-2xl font-bold tracking-tight">Masuk</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight">Masuk</h2>
           <ErrorBox error={err} />
           <div>
             <label className="label" htmlFor="email">Email</label>
